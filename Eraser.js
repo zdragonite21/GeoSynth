@@ -11,7 +11,7 @@ function Eraser(x, y, r) {
   World.add(world, this.body)
 
   this.show = function () {
-    var pos = { x: mouseX, y: constrain(mouseY, 50, height) }
+    var pos = { x: mouseX, y: constrain(mouseY, header, height) }
 
     Matter.Body.setPosition(this.body, pos)
 

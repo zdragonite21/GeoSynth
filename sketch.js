@@ -116,6 +116,7 @@ function mouseClicked() {
           shapes.push(new Line(poX, pX, poY, pY, stroke_len))
           button1 = false
           stay = false
+          turn = false
         } else {
           stay = true
         }
@@ -124,6 +125,7 @@ function mouseClicked() {
           shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot))
           button1 = false
           stay = false
+          turn = false
         } else {
           stay = true
         }
@@ -135,6 +137,7 @@ function mouseClicked() {
         balls.push(ball)
         button2 = false
         stay = false
+        turn = false
       } else {
         stay = true
       }
@@ -170,10 +173,8 @@ function draw() {
   background(51)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))
 
-  if (shapes.length > 0) {
-    for (var i = 0; i < shapes.length; i++) {
-      shapes[i].show()
-    }
+  for (var i = 0; i < shapes.length; i++) {
+    shapes[i].show()
   }
 
   for (var i = 0; i < balls.length; i++) {
