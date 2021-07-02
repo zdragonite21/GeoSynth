@@ -1,7 +1,9 @@
 $(document).ready(function () {
   var everything = $(".ui").not($(".erase"))
 
-  var inp = $(".input")
+  var inp = $("#in")
+
+  var input = $(".input")
 
   var handler = {
     activate: function () {
@@ -19,24 +21,29 @@ $(document).ready(function () {
         everything.addClass("disabled")
       }
     },
+
+    err: function () {
+      if (parseInt(this.value) > 20) {
+        if (!input.hasClass("error")) {
+          input.addClass("error")
+          $(".butt").addClass("disabled")
+        }
+      } else if (input.hasClass("error")) {
+        input.removeClass("error")
+        $(".butt").removeClass("disabled")
+      }
+    },
   }
 
   $(".toggle").on("click", handler.color)
 
   $("#sb").click(function () {
-    console.log(inp.value)
     $(".ui.labeled.icon.sidebar")
       .sidebar("setting", "transition", "overlay")
       .sidebar("toggle")
   })
 
-  if (parseInt(inp.value) > 20) {
-    if (!inp.hasClass("error")) {
-      inp.addClass("error")
-    }
-  } else if (inp.hasClass("error")) {
-    inp.removeClass("error")
-  }
+  inp.on("keypress", handler.err)
 
   $(".grp").on("click", handler.activate)
 
