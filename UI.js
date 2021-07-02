@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var everything = $(".ui").not($(".erase"))
 
+  var inp = $(".input")
+
   var handler = {
     activate: function () {
       $(this).addClass("active").siblings().removeClass("active")
@@ -22,10 +24,19 @@ $(document).ready(function () {
   $(".toggle").on("click", handler.color)
 
   $("#sb").click(function () {
+    console.log(inp.value)
     $(".ui.labeled.icon.sidebar")
       .sidebar("setting", "transition", "overlay")
       .sidebar("toggle")
   })
+
+  if (parseInt(inp.value) > 20) {
+    if (!inp.hasClass("error")) {
+      inp.addClass("error")
+    }
+  } else if (inp.hasClass("error")) {
+    inp.removeClass("error")
+  }
 
   $(".grp").on("click", handler.activate)
 

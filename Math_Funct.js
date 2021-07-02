@@ -57,3 +57,19 @@ function distance(x1, x2, y1, y2) {
 function avg(x1, x2, y1, y2) {
   return { x: (x1 + x2) / 2, y: (y1 + y2) / 2 }
 }
+
+function cons(x1, x2, y1, y2, con) {
+  x = x2 - x1
+  y = y2 - y1
+
+  d = hpt(distance(x1, x2, y1, y2))
+
+  a = Math.atan2(y, x)
+
+  a = roun(a, con)
+
+  x2 = Math.cos(a) * d + x1
+  y2 = Math.sin(a) * d + y1
+
+  return { x1: x1, x2: x2, y1: y1, y2: y2 }
+}

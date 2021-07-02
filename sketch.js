@@ -193,10 +193,18 @@ function draw() {
   if (turn) {
     if (button1) {
       if (keyIsDown(16)) {
-        rot = roun(
-          Math.atan2(mouseY - poY, mouseX - poX),
-          PI / (side_length * 2)
-        )
+        if (L) {
+          pX = mouseX
+          pY = mouseY
+          var con = cons(poX, pX, poY, pY, PI / 16)
+          pX = con.x2
+          pY = con.y2
+        } else {
+          rot = roun(
+            Math.atan2(mouseY - poY, mouseX - poX),
+            PI / (side_length * 2)
+          )
+        }
       } else {
         rot = Math.atan2(mouseY - poY, mouseX - poX)
         pX = mouseX
