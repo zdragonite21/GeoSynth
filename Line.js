@@ -22,9 +22,6 @@ function Line(x1, x2, y1, y2, s) {
   this.show = function () {
     var pos = this.body.position
     var angle = this.body.angle
-
-    rectMode(CENTER)
-
     push()
     translate(pos.x, pos.y)
     rotate(angle)
