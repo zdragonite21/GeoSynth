@@ -1,6 +1,7 @@
 function Circle(x, y, r, stat = false) {
   if (stat) {
     options = {
+      note: 3,
       isStatic: true,
     }
   } else {
@@ -21,6 +22,7 @@ function Circle(x, y, r, stat = false) {
 
   if (stat) {
     STATIC_BODIES.push(this.body)
+    this.body.label = "collad"
   } else {
     NONSTATIC_BODIES.push(this.body)
   }

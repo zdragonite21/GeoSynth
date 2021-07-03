@@ -72,7 +72,7 @@ class Music {
 
   noteAttack(key) {
     this.scale = getScaleRange("C", "major", this.octave)
-    this.note = scale[key]
+    this.note = this.scale[key]
     this.sampler.triggerAttack(this.note)
   }
 
@@ -82,7 +82,7 @@ class Music {
 
   noteAttackRelease(key) {
     this.scale = getScaleRange("C", "major", this.octave)
-    this.note = scale[key]
-    this.sampler.triggerAttackRelease("E1", "2n")
+    this.note = this.scale[key]
+    this.sampler.triggerAttackRelease(this.note, "2n")
   }
 }

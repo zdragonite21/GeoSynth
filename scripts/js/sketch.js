@@ -117,7 +117,11 @@ function handleCollision(bodyA, bodyB) {
   //   console.log(bodyA.label, bodyB.label)
   // }
   // if bodyA || bodyB === hex -- sampler.triggerAttackRelease(['a3', 'c3', 'e3'], '8n')
-  SOUND.noteAttackRelease(2)
+  if (bodyA.label == "collad") {
+    SOUND.noteAttackRelease(bodyA.note)
+  } else if (bodyB.label == "collad") {
+    SOUND.noteAttackRelease(bodyB.note)
+  }
 }
 
 function mouseClicked() {

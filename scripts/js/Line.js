@@ -1,5 +1,6 @@
 function Line(x1, x2, y1, y2, s) {
   options = {
+    note: 4,
     isStatic: true,
   }
 
@@ -7,6 +8,8 @@ function Line(x1, x2, y1, y2, s) {
 
   this.body = Bodies.rectangle(conv.x, conv.y, conv.l, conv.w, options)
   this.s = s
+
+  this.body.label = "collad"
 
   var length = conv.l
   var width = conv.w
