@@ -43,7 +43,7 @@ $(document).ready(function () {
       .sidebar("toggle")
   })
 
-  inp.on("keypress", handler.err)
+  inp.on("keyup", handler.err)
 
   $(".grp").on("click", handler.activate)
 
