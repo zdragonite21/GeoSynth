@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  var everything = $(".ui").not($(".erase"))
-
   var inp = $("#in")
 
   var input = $(".input")
@@ -16,11 +14,9 @@ $(document).ready(function () {
       if ($(this).hasClass("red")) {
         $(this).addClass("green")
         $(this).removeClass("red")
-        everything.removeClass("disabled")
       } else {
         $(this).addClass("red")
         $(this).removeClass("green")
-        everything.addClass("disabled")
       }
     },
 

@@ -233,13 +233,13 @@ function draw() {
   } else if (button2) {
     Cir(poX, poY, ball_rad)
     ev.on()
-  } else {
-    ev.off()
-  }
-
-  if (erase) {
+  } else if (erase) {
     eraser.show()
     eraser.detect()
+    ev.on()
+    $(".toggle").removeClass("disabled")
+  } else {
+    ev.off()
   }
 
   console.log(vset)
