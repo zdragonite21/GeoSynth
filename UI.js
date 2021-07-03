@@ -5,6 +5,8 @@ $(document).ready(function () {
 
   var input = $(".input")
 
+  var add = $(".butt")
+
   var handler = {
     activate: function () {
       $(this).addClass("active").siblings().removeClass("active")
@@ -23,24 +25,24 @@ $(document).ready(function () {
     },
 
     err: function () {
-      if (parseInt(this.value) > 20) {
-        if (!input.hasClass("error")) {
-          input.addClass("error")
-          $(".butt").addClass("disabled")
-        }
-      } else if (input.hasClass("error")) {
-        input.removeClass("error")
-        $(".butt").removeClass("disabled")
-      }
-
       if (this.value.length == 0) {
-        if (!$(".butt").hasClass("disabled")) {
-          $(".butt").addClass("disabled")
+        if (!add.hasClass("disabled")) {
+          console.log("none")
+          add.addClass("disabled")
         }
       } else {
         if ($(".butt").hasClass("disabled")) {
           $(".butt").removeClass("disabled")
         }
+      }
+      if (parseInt(this.value) > 20) {
+        if (!input.hasClass("error")) {
+          input.addClass("error")
+          add.addClass("disabled")
+        }
+      } else if (input.hasClass("error")) {
+        input.removeClass("error")
+        add.removeClass("disabled")
       }
     },
   }
@@ -67,7 +69,7 @@ $(document).ready(function () {
 })
 
 function every() {
-  var everything = $(".ui")
+  var everything = $(".ui").not(".butt")
 
   this.on = function () {
     if (!everything.hasClass("disabled")) {

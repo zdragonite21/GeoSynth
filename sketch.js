@@ -55,7 +55,7 @@ var hidden = false
 var erase = false
 var L = false
 var set_vel = 0
-var set = false
+var vset = false
 var ev = new every()
 
 function handleCollision(bodyA, bodyB) {
@@ -143,7 +143,7 @@ function mouseClicked() {
         button2 = false
         stay = false
         turn = false
-        set = false
+        vset = false
       } else {
         stay = true
       }
@@ -221,7 +221,7 @@ function draw() {
         min_rad,
         max_rad,
         keyIsDown(16),
-        set
+        vset
       )
       con_vec = createVector(con.x, con.y)
       vel = drawArrow({ x: poX, y: poY }, con_vec)
@@ -241,4 +241,6 @@ function draw() {
     eraser.show()
     eraser.detect()
   }
+
+  console.log(vset)
 }
