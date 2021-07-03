@@ -22,12 +22,16 @@ function hpt(val) {
   return Math.sqrt(Math.pow(val.x, 2) + Math.pow(val.y, 2))
 }
 
-function cirConstrain(base, pt, min_rad, max_rad, shift) {
+function cirConstrain(base, pt, min_rad, max_rad, shift, set) {
   dist = hpt(distance(base.x, pt.x, base.y, pt.y))
 
   x = pt.x - base.x
   y = pt.y - base.y
   var radians = Math.atan2(y, x)
+  if (set) {
+    dist = set_vel * 20
+  }
+
   if (shift) {
     radians = roun(radians, PI / 8)
   }

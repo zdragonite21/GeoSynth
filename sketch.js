@@ -54,6 +54,8 @@ var turn = false
 var hidden = false
 var erase = false
 var L = false
+var set_vel = 0
+var set = false
 
 function handleCollision(bodyA, bodyB) {
   // console.log(bodyA.label, bodyB.label)
@@ -216,7 +218,8 @@ function draw() {
         mouse_vec,
         min_rad,
         max_rad,
-        keyIsDown(16)
+        keyIsDown(16),
+        set
       )
       con_vec = createVector(con.x, con.y)
       vel = drawArrow({ x: poX, y: poY }, con_vec)

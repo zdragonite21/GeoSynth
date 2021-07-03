@@ -111,7 +111,12 @@
             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
             maxlength="2"
           />
-          <button class="ui orange button butt">Add</button>
+          <button
+            class="ui orange button butt"
+            onclick="set_vel = parseInt($('#in')[0].value), button2 = true, set = true"
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>
