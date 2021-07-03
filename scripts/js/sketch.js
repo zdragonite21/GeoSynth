@@ -72,6 +72,8 @@ function setup() {
   SOUND.initalize()
   SOUND.tone()
 
+  Tone.context.resume()
+
   rectMode(CENTER)
 
   ground = Bodies.rectangle(width / 2, height, width, 10, option)

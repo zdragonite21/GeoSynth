@@ -48,12 +48,12 @@ class Music {
     this.wave = new Tone.Waveform(256).toMaster()
     this.sampler = new Tone.Sampler({
       urls: {
-        C3: "C.mp3",
+        C3: "utils/Cs.mp3",
         // C3: '../samples/ringtone.mp3',
         // G3: "../samples/duck.mp3",
       },
 
-      volume: -10,
+      volume: -30,
 
       onload: () => {
         sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5)
@@ -83,6 +83,6 @@ class Music {
   noteAttackRelease(key) {
     this.scale = getScaleRange("C", "major", this.octave)
     this.note = scale[key]
-    this.sampler.triggerAttackRelease("C3", "8n")
+    this.sampler.triggerAttackRelease("E1", "2n")
   }
 }
