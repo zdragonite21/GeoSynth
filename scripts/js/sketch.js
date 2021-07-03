@@ -15,6 +15,8 @@ var STATIC_BODIES = []
 var NONSTATIC_BODIES = []
 var ALL_BODIES = []
 
+var SOUND
+
 var engine
 var world
 var cir1
@@ -57,17 +59,7 @@ var L = false
 var set_vel = 0
 var vset = false
 var ev = new every()
-
-function handleCollision(bodyA, bodyB) {
-  // console.log(bodyA.label, bodyB.label)
-  // handle if eraser is one of the objects
-  // if (bodyA.label === "eraser" || bodyB.label === "eraser") {
-  //   console.log("eraser collided")
-  // } else {
-  //   console.log(bodyA.label, bodyB.label)
-  // }
-  // if bodyA || bodyB === hex -- sampler.triggerAttackRelease(['a3', 'c3', 'e3'], '8n')
-}
+var mic
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight)
@@ -75,6 +67,10 @@ function setup() {
   world = engine.world
   world.gravity.y = 0
   Engine.run(engine)
+
+  SOUND = new Music()
+  SOUND.initalize()
+  SOUND.tone()
 
   rectMode(CENTER)
 
@@ -108,6 +104,18 @@ function setup() {
 
     handleCollision(bodyA, bodyB)
   })
+}
+
+function handleCollision(bodyA, bodyB) {
+  // console.log(bodyA.label, bodyB.label)
+  // handle if eraser is one of the objects
+  // if (bodyA.label === "eraser" || bodyB.label === "eraser") {
+  //   console.log("eraser collided")
+  // } else {
+  //   console.log(bodyA.label, bodyB.label)
+  // }
+  // if bodyA || bodyB === hex -- sampler.triggerAttackRelease(['a3', 'c3', 'e3'], '8n')
+  SOUND.noteAttackRelease(2)
 }
 
 function mouseClicked() {
@@ -241,6 +249,4 @@ function draw() {
   } else {
     ev.off()
   }
-
-  console.log(vset)
 }

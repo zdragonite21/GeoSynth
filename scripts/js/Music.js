@@ -1,13 +1,7 @@
 class Music {
-  constructor() {}
-
   initalize() {
     this.effectOn = true
     this.octave = 3
-
-    this.synth, delay
-    this.wave
-    this.select, octSelect
     this.isFFT = false
 
     this.synthSettings = {
@@ -49,43 +43,46 @@ class Music {
   }
 
   tone() {
-    this.delay = new Tone.FeedbackDelay(delaySettings)
+    this.delay = new Tone.FeedbackDelay(this.delaySettings)
     this.fft = new Tone.FFT(256).toMaster()
     this.wave = new Tone.Waveform(256).toMaster()
-    this.sampler = new Tone.Sampler(
-      {
+    this.sampler = new Tone.Sampler({
+      urls: {
+        C3: "C.mp3",
         // C3: '../samples/ringtone.mp3',
-        C3: "https://freesound.org/data/previews/337/337923_5997821-lq.mp3",
-        // G3: '../samples/duck.mp3',
+        // G3: "../samples/duck.mp3",
       },
-      {
-        volume: -5,
-      }
-    )
 
-    if (effectOn) {
-      this.sampler.connect(delay)
-      this.delay.connect(fft)
-      this.delay.connect(wave)
+      volume: -10,
+
+      onload: () => {
+        sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5)
+      },
+    }).toDestination()
+
+    if (this.effectOn) {
+      this.sampler.connect(this.delay)
+      this.delay.connect(this.fft)
+      this.delay.connect(this.wave)
     } else {
-      this.sampler.connect(fft)
-      this.sampler.connect(wave)
+      this.sampler.connect(this.fft)
+      this.sampler.connect(this.wave)
     }
   }
 
   noteAttack(key) {
     this.scale = getScaleRange("C", "major", this.octave)
     this.note = scale[key]
-    this.sampler.triggerAttack(note)
+    this.sampler.triggerAttack(this.note)
   }
 
   noteRelease() {
     this.sampler.triggerRelease()
   }
 
-  noteAttackRelease() {
+  noteAttackRelease(key) {
     this.scale = getScaleRange("C", "major", this.octave)
     this.note = scale[key]
-    this.sampler.triggerAttackRelease(note)
+    this.sampler.triggerAttackRelease("C3", "8n")
   }
 }
