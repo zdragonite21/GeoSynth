@@ -32,6 +32,16 @@ $(document).ready(function () {
         input.removeClass("error")
         $(".butt").removeClass("disabled")
       }
+
+      if (this.value.length == 0) {
+        if (!$(".butt").hasClass("disabled")) {
+          $(".butt").addClass("disabled")
+        }
+      } else {
+        if ($(".butt").hasClass("disabled")) {
+          $(".butt").removeClass("disabled")
+        }
+      }
     },
   }
 
@@ -43,7 +53,7 @@ $(document).ready(function () {
       .sidebar("toggle")
   })
 
-  inp.on("keyup", handler.err)
+  inp.on("input", handler.err)
 
   $(".grp").on("click", handler.activate)
 
@@ -55,3 +65,19 @@ $(document).ready(function () {
     },
   })
 })
+
+function every() {
+  var everything = $(".ui")
+
+  this.on = function () {
+    if (!everything.hasClass("disabled")) {
+      everything.addClass("disabled")
+    }
+  }
+
+  this.off = function () {
+    if (everything.hasClass("disabled")) {
+      everything.removeClass("disabled")
+    }
+  }
+}

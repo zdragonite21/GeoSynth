@@ -56,6 +56,7 @@ var erase = false
 var L = false
 var set_vel = 0
 var set = false
+var ev = new every()
 
 function handleCollision(bodyA, bodyB) {
   // console.log(bodyA.label, bodyB.label)
@@ -142,6 +143,7 @@ function mouseClicked() {
         button2 = false
         stay = false
         turn = false
+        set = false
       } else {
         stay = true
       }
@@ -227,10 +229,12 @@ function draw() {
   }
   if (button1) {
     Poly(poX, poY, side_length, shape_rad, rot, cir, L)
-  }
-
-  if (button2) {
+    ev.on()
+  } else if (button2) {
     Cir(poX, poY, ball_rad)
+    ev.on()
+  } else {
+    ev.off()
   }
 
   if (erase) {
