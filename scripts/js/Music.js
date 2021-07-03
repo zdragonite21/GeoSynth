@@ -48,15 +48,20 @@ class Music {
     this.wave = new Tone.Waveform(256).toMaster()
     this.sampler = new Tone.Sampler({
       urls: {
-        C3: "utils/Cs.mp3",
-        // C3: '../samples/ringtone.mp3',
-        // G3: "../samples/duck.mp3",
+        C1: "utils/samples/C1vL.wav",
+        C2: "utils/samples/C2vL.wav",
+        C3: "utils/samples/C3vL.wav",
+        C4: "utils/samples/C4vL.wav",
+        C5: "utils/samples/C5vL.wav",
+        C6: "utils/samples/C6vL.wav",
+        C7: "utils/samples/C7vL.wav",
+        C8: "utils/samples/C8vL.wav",
       },
 
       volume: -30,
 
       onload: () => {
-        sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5)
+        this.sampler.triggerAttackRelease(["C3", "E3", "G3", "B3"], 3)
       },
     }).toDestination()
 
@@ -80,9 +85,10 @@ class Music {
     this.sampler.triggerRelease()
   }
 
-  noteAttackRelease(key) {
-    this.scale = getScaleRange("C", "major", this.octave)
-    this.note = this.scale[key]
-    this.sampler.triggerAttackRelease(this.note, "2n")
+  noteAttackRelease(note) {
+    // this.scale = getScaleRange("C", "major", this.octave)
+    // console.log(this.scale)
+    // this.note = this.scale[key]
+    this.sampler.triggerAttackRelease(note, "2n")
   }
 }

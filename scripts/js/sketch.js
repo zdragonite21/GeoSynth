@@ -46,6 +46,7 @@ var vel = { x: 3, y: 4 }
 var max_rad = 400
 var min_rad = 40
 var stroke_len = 10
+var note = "C3"
 
 var poX = 0
 var poY = 0

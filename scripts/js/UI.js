@@ -62,6 +62,16 @@ $(document).ready(function () {
       hide: 0,
     },
   })
+
+  $(".akey").click(function () {
+    if (!$(this).hasClass("r")) {
+      $(this).addClass("r").siblings().removeClass("r")
+      note = $(this).data("note")
+    }
+    if (keyIsDown(16)) {
+      SOUND.noteAttackRelease(note)
+    }
+  })
 })
 
 function every() {

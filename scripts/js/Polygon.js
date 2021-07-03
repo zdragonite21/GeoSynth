@@ -6,7 +6,7 @@ function Polygon(
   R = 0,
   options = {
     isStatic: true,
-    note: 0,
+    note: note,
   }
 ) {
   this.body = Bodies.polygon(x, y, s, r, options)
@@ -18,8 +18,6 @@ function Polygon(
   ALL_BODIES.push(this.body)
 
   this.body.label = "collad"
-
-  this.body.note = s
 
   if (this.s == 3) {
     this.R += PI / (s * -2)

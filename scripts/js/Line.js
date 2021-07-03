@@ -1,6 +1,6 @@
 function Line(x1, x2, y1, y2, s) {
   options = {
-    note: 4,
+    note: note,
     isStatic: true,
   }
 

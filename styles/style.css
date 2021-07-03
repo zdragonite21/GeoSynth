@@ -7,3 +7,37 @@ body {
   overflow: hidden;
   display: block;
 }
+
+.piano {
+  display: flex;
+  float: left;
+  margin-right: 20px;
+}
+
+.akey {
+  height: calc(var(--width) * 2.5);
+  width: var(--width);
+}
+
+.w {
+  --width: 25px;
+  background-color: white;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-bottom-right-radius: calc(var(--width) / 5) calc(var(--width) / 5);
+  border-bottom-left-radius: calc(var(--width) / 5) calc(var(--width) / 5);
+}
+
+.b {
+  --width: 15px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+  border-bottom-right-radius: calc(var(--width) / 5) calc(var(--width) / 5);
+  border-bottom-left-radius: calc(var(--width) / 5) calc(var(--width) / 5);
+}
+
+.r {
+  background-color: red;
+}

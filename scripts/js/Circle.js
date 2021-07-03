@@ -1,7 +1,7 @@
 function Circle(x, y, r, stat = false) {
   if (stat) {
     options = {
-      note: 3,
+      note: note,
       isStatic: true,
     }
   } else {
