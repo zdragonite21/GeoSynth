@@ -5,6 +5,8 @@ $(document).ready(function () {
 
   var add = $(".butt")
 
+  var dis = false
+
   var handler = {
     activate: function () {
       $(this).addClass("active").siblings().removeClass("active")
@@ -64,26 +66,24 @@ $(document).ready(function () {
   })
 
   $(".akey").click(function () {
-    if (!$(this).hasClass("r")) {
-      $(this)
-        .addClass("r")
-        .siblings()
-        .removeClass("r")
-        .removeClass("bl")
-        .removeClass("db")
-      note = $(this).data("note")
-    }
-    if (keyIsDown(16)) {
-      SOUND.noteAttackRelease(note)
-    }
+    if (dis) {
+      if (!$(this).hasClass("r")) {
+        $(this).siblings().removeClass("r").removeClass("bl").removeClass("db")
+        $(this).addClass("r").removeClass("bl").removeClass("db")
+        note = $(this).data("note")
+      }
+      if (keyIsDown(16)) {
+        SOUND.noteAttackRelease(note)
+      }
 
-    if (keyIsDown(17)) {
-      var chor = SOUND.chord(note)
-      SOUND.chBlue(chor)
-    } else {
-      $(".akey").each(function () {
-        $(this).removeClass("bl").removeClass("db")
-      })
+      if (keyIsDown(17)) {
+        var chor = SOUND.chord(note)
+        SOUND.chBlue(chor)
+      } else {
+        $(".akey").each(function () {
+          $(this).removeClass("bl").removeClass("db")
+        })
+      }
     }
   })
 })
@@ -94,12 +94,16 @@ function every() {
   this.on = function () {
     if (!everything.hasClass("disabled")) {
       everything.addClass("disabled")
+      $(".w").addClass("g")
+      dis = true
     }
   }
 
   this.off = function () {
     if (everything.hasClass("disabled")) {
       everything.removeClass("disabled")
+      $(".w").removeClass("g")
+      dis = false
     }
   }
 }
