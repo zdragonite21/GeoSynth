@@ -95,8 +95,34 @@ class Music {
   chord(key) {
     var notes = key.length == 3 ? conFlat[key.slice(0, 2)] : key[0]
 
-    return majorChords[notes].filter((item) => item !== notes)
+    var mix_chord = majorChords[notes]
 
-    // return [chor[1], chor[3], chor[5]]
+    for (var i = 0; i < mix_chord.length; i++) {
+      if (mix_chord[i].includes("b")) {
+        mix_chord[i] = conSharp[mix_chord[i]]
+      }
+    }
+
+    return mix_chord
+  }
+
+  chBlue(chor) {
+    $(".akey").each(function () {
+      var temp = $(this).data("note")
+      temp = temp.length == 3 ? temp.slice(0, 2) : temp[0]
+      if (!$(this).hasClass("r")) {
+        for (let i = 0; i < chor.length; i++) {
+          if (chor[i] == temp) {
+            if (!$(this).hasClass("bl") && !$(this).hasClass("db")) {
+              if ($(this).hasClass("b")) {
+                $(this).addClass("db")
+              } else {
+                $(this).addClass("bl")
+              }
+            }
+          }
+        }
+      }
+    })
   }
 }

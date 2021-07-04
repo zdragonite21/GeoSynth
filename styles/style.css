@@ -51,3 +51,11 @@ body {
 .r {
   background-color: red;
 }
+
+.bl {
+  background-color: rgb(126, 126, 255);
+}
+
+.db {
+  background-color: rgb(0, 0, 160);
+}

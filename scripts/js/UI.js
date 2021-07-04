@@ -65,11 +65,25 @@ $(document).ready(function () {
 
   $(".akey").click(function () {
     if (!$(this).hasClass("r")) {
-      $(this).addClass("r").siblings().removeClass("r")
+      $(this)
+        .addClass("r")
+        .siblings()
+        .removeClass("r")
+        .removeClass("bl")
+        .removeClass("db")
       note = $(this).data("note")
     }
     if (keyIsDown(16)) {
       SOUND.noteAttackRelease(note)
+    }
+
+    if (keyIsDown(17)) {
+      var chor = SOUND.chord(note)
+      SOUND.chBlue(chor)
+    } else {
+      $(".akey").each(function () {
+        $(this).removeClass("bl").removeClass("db")
+      })
     }
   })
 })

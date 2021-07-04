@@ -59,6 +59,7 @@ const majorChords = {
 }
 
 const conFlat = { "C#": "Db", "D#": "Eb", "F#": "Gb", "G#": "Ab", "A#": "Bb" }
+const conSharp = { Db: "C#", Eb: "D#", Gb: "F#", Ab: "G#", Bb: "A#" }
 
 const getScaleRange = (scale, mode, range) => {
   let notes
