@@ -107,6 +107,8 @@ function setup() {
 
     handleCollision(bodyA, bodyB)
   })
+
+  console.log(SOUND.chord("F#5"))
 }
 
 function handleCollision(bodyA, bodyB) {

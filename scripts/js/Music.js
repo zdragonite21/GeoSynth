@@ -91,4 +91,12 @@ class Music {
     // this.note = this.scale[key]
     this.sampler.triggerAttackRelease(note, "2n")
   }
+
+  chord(key) {
+    var notes = key.length == 3 ? conFlat[key.slice(0, 2)] : key[0]
+
+    return majorChords[notes].filter((item) => item !== notes)
+
+    // return [chor[1], chor[3], chor[5]]
+  }
 }

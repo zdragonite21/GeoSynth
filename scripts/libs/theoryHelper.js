@@ -43,6 +43,23 @@ const minorChords = {
   F: ["F", "Ab", "C"],
 }
 
+const majorChords = {
+  C: ["C", "E", "G"],
+  G: ["G", "B", "D"],
+  D: ["D", "F#", "A"],
+  A: ["A", "C#", "E"],
+  E: ["E", "G#", "B"],
+  B: ["B", "D#", "F#"],
+  Gb: ["Gb", "Bb", "Db"],
+  Db: ["Db", "F", "Ab"],
+  Ab: ["Ab", "C", "Eb"],
+  Eb: ["Eb", "G", "Bb"],
+  Bb: ["Bb", "D", "F"],
+  F: ["F", "A", "C"],
+}
+
+const conFlat = { "C#": "Db", "D#": "Eb", "F#": "Gb", "G#": "Ab", "A#": "Bb" }
+
 const getScaleRange = (scale, mode, range) => {
   let notes
   if (mode === "major") {
