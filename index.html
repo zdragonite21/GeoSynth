@@ -55,12 +55,30 @@
             <option value="0">None</option>
             <option value="1">Piano</option>
             <option value="2">Duck</option>
+            <option value="3">Drum Set</option>
           </select>
+        </div>
+
+        <!-- drums -->
+
+        <div style="float: left; margin: 7px" hidden="true" id="per">
+          <div class="ui vertical buttons small" style="margin-right: 5px">
+            <button data-val="0" class="ui button drum">Snare</button>
+            <button data-val="1" class="ui button drum">Dry</button>
+          </div>
+          <button data-val="2" class="ui button small drum">Cymbal</button>
+          <button data-val="3" class="ui button small drum">Tom</button>
+          <div class="ui vertical buttons small" style="margin-right: 3px">
+            <button data-val="4" class="ui button drum">Hi Hat</button>
+            <button data-val="5" class="ui button drum">Closed</button>
+          </div>
+          <button data-val="6" class="ui button small drum">Side Stick</button>
+          <button data-val="7" class="ui button small drum">Bass</button>
         </div>
 
         <!-- piano -->
 
-        <div class="piano" style="float: left">
+        <div class="piano" style="float: left" hidden="true">
           <div data-note="F2" class="akey w"></div>
           <div data-note="F#2" class="akey b"></div>
           <div data-note="G2" class="akey w"></div>

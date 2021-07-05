@@ -25,7 +25,6 @@ $(document).ready(function () {
     err: function () {
       if (this.value.length == 0) {
         if (!add.hasClass("disabled")) {
-          console.log("none")
           add.addClass("disabled")
         }
       } else {
@@ -63,6 +62,23 @@ $(document).ready(function () {
     },
   })
 
+  $(".drum").on("click", function () {
+    var cur = $(this)
+    cur.addClass("active")
+    note = SOUND.drum(cur.data("val"))
+    console.log(note)
+
+    if (keyIsDown(16)) {
+      SOUND.noteAttackRelease(note, 3)
+    }
+
+    $(".drum")
+      .not(cur)
+      .each(function () {
+        $(this).removeClass("active")
+      })
+  })
+
   $(".pop").popup({
     inline: true,
     delay: {
@@ -79,7 +95,7 @@ $(document).ready(function () {
         note = $(this).data("note")
       }
       if (keyIsDown(16)) {
-        SOUND.noteAttackRelease(note)
+        SOUND.noteAttackRelease(note, SOUND.effect)
       }
 
       if (keyIsDown(17)) {

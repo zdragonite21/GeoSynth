@@ -75,6 +75,21 @@ class Music {
       volume: -30,
     }).toDestination()
 
+    this.sampler2 = new Tone.Sampler({
+      urls: {
+        C1: "utils/drum/samples/BassDrum-HV1.wav",
+        D1: "utils/drum/samples/ClosedHiHat-2.wav",
+        E1: "utils/drum/samples/Cymbal16iCrash-1.wav",
+        F1: "utils/drum/samples/MidTom-1.wav",
+        G1: "utils/drum/samples/OpenHiHat-1.wav",
+        A1: "utils/drum/samples/SideStick-7.wav",
+        B1: "utils/drum/samples/SnareDrum1-HV2.wav",
+        C2: "utils/drum/samples/SnareDrumDry.wav",
+      },
+
+      volume: -30,
+    }).toDestination()
+
     if (this.effectOn) {
       this.sampler.connect(this.delay)
       this.delay.connect(this.fft)
@@ -82,6 +97,17 @@ class Music {
     } else {
       this.sampler.connect(this.fft)
       this.sampler.connect(this.wave)
+    }
+
+    this.drums = {
+      0: "B1",
+      1: "C2",
+      2: "E1",
+      3: "F1",
+      4: "G1",
+      5: "D1",
+      6: "A1",
+      7: "C1",
     }
   }
 
@@ -98,6 +124,8 @@ class Music {
       this.sampler.triggerAttackRelease(note, "2n")
     } else if (eff == 2) {
       this.sampler1.triggerAttackRelease(note, "2n")
+    } else if (eff == 3) {
+      this.sampler2.triggerAttackRelease(note, "2n")
     }
   }
 
@@ -137,9 +165,21 @@ class Music {
 
   setEffect(val) {
     this.effect_num = val
+
+    if (this.effect_num == 1 || this.effect_num == 2) {
+      $(".piano").attr("hidden", false)
+      $("#per").attr("hidden", true)
+    } else if (this.effect_num == 3) {
+      $("#per").attr("hidden", false)
+      $(".piano").attr("hidden", true)
+    }
   }
 
   get effect() {
     return this.effect_num
+  }
+
+  drum(val) {
+    return this.drums[val]
   }
 }

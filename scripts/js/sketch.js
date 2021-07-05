@@ -260,5 +260,4 @@ function draw() {
   } else {
     ev.off()
   }
-  console.log(SOUND.effect)
 }
