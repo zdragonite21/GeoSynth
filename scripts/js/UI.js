@@ -1,201 +1,219 @@
 var dis = false
 
-$(document).ready(function () {
-  var inp = $("#in")
+var en = ""
 
-  var input = $(".input")
+$(document)
+  .ready(function () {
+    var inp = $("#in")
 
-  var add = $("#enter")
+    var input = $(".input")
 
-  var handler = {
-    activate: function () {
-      $(this).addClass("active").siblings().removeClass("active")
-    },
+    var add = $("#enter")
 
-    color: function (id) {
-      if ($(id).hasClass("red")) {
-        $(id).addClass("green")
-        $(id).removeClass("red")
-      } else {
-        $(id).addClass("red")
-        $(id).removeClass("green")
-      }
-    },
+    var handler = {
+      activate: function () {
+        $(this).addClass("active").siblings().removeClass("active")
+      },
 
-    tgcolor: function (id) {
-      if ($(id).data("val") == true) {
-        $(id).addClass("green")
-        $(id).removeClass($(id).data("color"))
-      } else {
-        $(id).removeClass("green")
-        $(id).addClass($(id).data("color"))
-      }
-    },
+      color: function (id) {
+        if ($(id).hasClass("red")) {
+          $(id).addClass("green")
+          $(id).removeClass("red")
+        } else {
+          $(id).addClass("red")
+          $(id).removeClass("green")
+        }
+      },
 
-    err: function () {
-      if (this.value.length == 0) {
-        add.addClass("disabled")
-      } else {
-        add.removeClass("disabled")
-      }
-      if (parseInt(this.value) > 20) {
-        input.addClass("error")
-        add.addClass("disabled")
-      } else {
-        input.removeClass("error")
-        add.removeClass("disabled")
-      }
-    },
+      tgcolor: function (id) {
+        if ($(id).data("val") == true) {
+          $(id).addClass("green")
+          $(id).removeClass($(id).data("color"))
+        } else {
+          $(id).removeClass("green")
+          $(id).addClass($(id).data("color"))
+        }
+      },
 
-    disable: function (id, but = false) {
-      var all = $(".ui").not($(id))
+      err: function () {
+        if (this.value.length == 0) {
+          add.addClass("disabled")
+        } else {
+          add.removeClass("disabled")
+        }
+        if (parseInt(this.value) > 20) {
+          input.addClass("error")
+          add.addClass("disabled")
+        } else {
+          input.removeClass("error")
+          add.removeClass("disabled")
+        }
+      },
 
-      if (but) {
-        all = all.not($("#enter"))
-      }
+      disable: function (id, but = false) {
+        var all = $(".ui").not($(id))
 
-      var sel = $("#select")
-      if ($(id).data("val")) {
-        all.addClass("disabled")
-        sel.parent().addClass("disabled")
-        $(".w").addClass("g")
-      } else {
-        all.removeClass("disabled")
-        sel.parent().removeClass("disabled")
-        $(".w").removeClass("g")
-      }
-    },
-    toggle: function (id) {
-      $(id).data("val", !$(id).data("val"))
-    },
-  }
-  $(".erase").on("click", () => {
-    handler.color("#erase")
-    handler.toggle("#erase")
-    handler.disable("#erase")
-  })
+        if (but) {
+          all = all.not($("#enter"))
+        }
 
-  $("#sb").click(function () {
-    $(".ui.labeled.icon.sidebar")
-      .sidebar("setting", "transition", "overlay")
-      .sidebar("toggle")
-  })
-
-  inp.on("input", handler.err)
-
-  $("#shape").click(() => {
-    handler.toggle("#shape")
-    handler.tgcolor("#shape")
-    handler.disable("#shape")
-    button1 = !button1
-  })
-
-  $("#ball").click(() => {
-    handler.toggle("#ball")
-    handler.tgcolor("#ball")
-    handler.disable("#ball")
-    button2 = !button2
-  })
-
-  $("#enter").click(() => {
-    handler.toggle("#enter")
-    handler.tgcolor("#enter")
-    $("#hold").data("val", $("#enter").data("val"))
-    handler.disable("#hold", true)
-    set_vel = parseInt($("#in")[0].value)
-    button2 = !button2
-    vset = !vset
-  })
-
-  $(".grp").on("click", handler.activate)
-
-  $("#select").dropdown({
-    onChange: function (value) {
-      SOUND.setEffect(value)
-    },
-  })
-
-  $("#fhyt").on("mouseenter", function () {
-    $(this).animate({ right: "0px" })
-  })
-
-  $("#fhyt").on("mouseleave", function () {
-    $(this).animate({ right: "-130px" })
-    if ($(this).queue("fx").length > 2) {
-      $(this).clearQueue()
+        var sel = $("#select")
+        if ($(id).data("val")) {
+          all.addClass("disabled")
+          sel.parent().addClass("disabled")
+          $(".w").addClass("g")
+          dis = true
+          en = but ? "#enter" : id
+        } else {
+          all.removeClass("disabled")
+          sel.parent().removeClass("disabled")
+          $(".w").removeClass("g")
+          dis = false
+        }
+      },
+      toggle: function (id) {
+        $(id).data("val", !$(id).data("val"))
+      },
     }
-  })
+    $(".erase").on("click", () => {
+      handler.color("#erase")
+      handler.toggle("#erase")
+      handler.disable("#erase")
+    })
 
-  $("#geo").on("mouseenter", function () {
-    $(this).animate({ right: "0px" })
-  })
+    $("#sb").click(function () {
+      $(".ui.labeled.icon.sidebar")
+        .sidebar("setting", "transition", "overlay")
+        .sidebar("toggle")
+    })
 
-  $("#geo").on("mouseleave", function () {
-    $(this).animate({ right: "-105px" })
-    if ($(this).queue("fx").length > 2) {
-      $(this).clearQueue()
-    }
-  })
+    inp.on("input", handler.err)
 
-  $(".drum").on("click", function () {
-    var cur = $(this)
-    cur.addClass("active")
-    note = SOUND.drum(cur.data("val"))
-    console.log(note)
+    $("#shape").click(() => {
+      handler.toggle("#shape")
+      handler.tgcolor("#shape")
+      handler.disable("#shape")
+      button1 = !button1
+    })
 
-    if (keyIsDown(16)) {
-      SOUND.noteAttackRelease(note, 3)
-    }
+    $("#ball").click(() => {
+      handler.toggle("#ball")
+      handler.tgcolor("#ball")
+      handler.disable("#ball")
+      button2 = !button2
+    })
 
-    $(".drum")
-      .not(cur)
-      .each(function () {
-        $(this).removeClass("active")
-      })
-  })
+    $("#enter").click(() => {
+      handler.toggle("#enter")
+      handler.tgcolor("#enter")
+      $("#hold").data("val", $("#enter").data("val"))
+      handler.disable("#hold", true)
+      set_vel = parseInt($("#in")[0].value)
+      button2 = !button2
+      vset = !vset
+    })
 
-  $(".pop").popup({
-    inline: true,
-    delay: {
-      show: 1000,
-      hide: 0,
-    },
-  })
+    $(".grp").on("click", handler.activate)
 
-  $("#pause")
-    .state({
-      text: {
-        active: "Play",
-        inactive: "Pause",
+    $("#select").dropdown({
+      onChange: function (value) {
+        SOUND.setEffect(value)
       },
     })
-    .click(() => {
-      handler.toggle("#pause")
-      handler.tgcolor("#pause")
+
+    $("#fhyt").on("mouseenter", function () {
+      $(this).animate({ right: "0px" })
     })
 
-  $(".akey").click(function () {
-    if (!dis) {
-      if (!$(this).hasClass("r")) {
-        $(this).siblings().removeClass("r").removeClass("bl").removeClass("db")
-        $(this).addClass("r").removeClass("bl").removeClass("db")
-        note = $(this).data("note")
+    $("#fhyt").on("mouseleave", function () {
+      $(this).animate({ right: "-130px" })
+      if ($(this).queue("fx").length > 2) {
+        $(this).clearQueue()
       }
+    })
+
+    $("#geo").on("mouseenter", function () {
+      $(this).animate({ right: "0px" })
+    })
+
+    $("#geo").on("mouseleave", function () {
+      $(this).animate({ right: "-105px" })
+      if ($(this).queue("fx").length > 2) {
+        $(this).clearQueue()
+      }
+    })
+
+    $(".drum").on("click", function () {
+      var cur = $(this)
+      cur.addClass("active")
+      note = SOUND.drum(cur.data("val"))
+      console.log(note)
+
       if (keyIsDown(16)) {
-        SOUND.noteAttackRelease(note, SOUND.effect)
+        SOUND.noteAttackRelease(note, 3)
       }
 
-      if (keyIsDown(17)) {
-        var chor = SOUND.chord(note)
-        SOUND.chBlue(chor)
-      } else {
-        $(".akey").each(function () {
-          $(this).removeClass("bl").removeClass("db")
+      $(".drum")
+        .not(cur)
+        .each(function () {
+          $(this).removeClass("active")
         })
+    })
+
+    $(".pop").popup({
+      inline: true,
+      delay: {
+        show: 1000,
+        hide: 0,
+      },
+    })
+
+    $("#pause")
+      .state({
+        text: {
+          active: "Play",
+          inactive: "Pause",
+        },
+      })
+      .click(() => {
+        handler.toggle("#pause")
+        handler.tgcolor("#pause")
+      })
+
+    $(".akey").click(function () {
+      if (!dis) {
+        if (!$(this).hasClass("r")) {
+          $(this)
+            .siblings()
+            .removeClass("r")
+            .removeClass("bl")
+            .removeClass("db")
+          $(this).addClass("r").removeClass("bl").removeClass("db")
+          note = $(this).data("note")
+        }
+        if (keyIsDown(16)) {
+          SOUND.noteAttackRelease(note, SOUND.effect)
+        }
+
+        if (keyIsDown(17)) {
+          var chor = SOUND.chord(note)
+          SOUND.chBlue(chor)
+        } else {
+          $(".akey").each(function () {
+            $(this).removeClass("bl").removeClass("db")
+          })
+        }
+      }
+    })
+  })
+  .keyup((event) => {
+    if (event.key === "Escape") {
+      console.log("yay")
+      if (dis) {
+        $(en).trigger("click")
       }
     }
   })
-})
 
 // function every() {
 //   var everything = $(".ui").not(".butt")
