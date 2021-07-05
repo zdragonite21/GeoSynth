@@ -214,6 +214,9 @@ $(document)
       }
     }
   })
+  .on("contextmenu", function () {
+    return false
+  })
 
 // function every() {
 //   var everything = $(".ui").not(".butt")
