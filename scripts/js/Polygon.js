@@ -7,6 +7,7 @@ function Polygon(
   options = {
     isStatic: true,
     note: note,
+    effect: SOUND.effect,
   }
 ) {
   this.body = Bodies.polygon(x, y, s, r, options)

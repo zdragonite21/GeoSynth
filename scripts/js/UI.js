@@ -1,11 +1,11 @@
+var dis = false
+
 $(document).ready(function () {
   var inp = $("#in")
 
   var input = $(".input")
 
   var add = $(".butt")
-
-  var dis = false
 
   var handler = {
     activate: function () {
@@ -57,6 +57,12 @@ $(document).ready(function () {
 
   $(".grp").on("click", handler.activate)
 
+  $("#select").dropdown({
+    onChange: function (value) {
+      SOUND.setEffect(value)
+    },
+  })
+
   $(".pop").popup({
     inline: true,
     delay: {
@@ -66,7 +72,7 @@ $(document).ready(function () {
   })
 
   $(".akey").click(function () {
-    if (dis) {
+    if (!dis) {
       if (!$(this).hasClass("r")) {
         $(this).siblings().removeClass("r").removeClass("bl").removeClass("db")
         $(this).addClass("r").removeClass("bl").removeClass("db")
@@ -92,18 +98,18 @@ function every() {
   var everything = $(".ui").not(".butt")
 
   this.on = function () {
+    dis = true
     if (!everything.hasClass("disabled")) {
       everything.addClass("disabled")
       $(".w").addClass("g")
-      dis = true
     }
   }
 
   this.off = function () {
+    dis = false
     if (everything.hasClass("disabled")) {
       everything.removeClass("disabled")
       $(".w").removeClass("g")
-      dis = false
     }
   }
 }

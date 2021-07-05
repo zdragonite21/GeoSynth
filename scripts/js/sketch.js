@@ -119,9 +119,13 @@ function handleCollision(bodyA, bodyB) {
   // }
   // if bodyA || bodyB === hex -- sampler.triggerAttackRelease(['a3', 'c3', 'e3'], '8n')
   if (bodyA.label == "collad") {
-    SOUND.noteAttackRelease(bodyA.note)
+    if (bodyA.note != []) {
+      SOUND.noteAttackRelease(bodyA.note, bodyA.effect)
+    }
   } else if (bodyB.label == "collad") {
-    SOUND.noteAttackRelease(bodyB.note)
+    if (bodyB.note != []) {
+      SOUND.noteAttackRelease(bodyB.note, bodyB.effect)
+    }
   }
 }
 
@@ -256,4 +260,5 @@ function draw() {
   } else {
     ev.off()
   }
+  console.log(SOUND.effect)
 }

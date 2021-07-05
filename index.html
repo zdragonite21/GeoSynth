@@ -48,9 +48,19 @@
         class="parental shape buttons"
         style="margin: 5px; position: absolute; right: 0"
       >
+        <!-- select -->
+        <div style="float: left; margin-right: 20px; margin-top: 12px">
+          <select name="effect" class="ui dropdown compact" id="select">
+            <option value="">Sound Effect</option>
+            <option value="0">None</option>
+            <option value="1">Piano</option>
+            <option value="2">Duck</option>
+          </select>
+        </div>
+
         <!-- piano -->
 
-        <div class="piano">
+        <div class="piano" style="float: left">
           <div data-note="F2" class="akey w"></div>
           <div data-note="F#2" class="akey b"></div>
           <div data-note="G2" class="akey w"></div>

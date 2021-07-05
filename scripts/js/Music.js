@@ -40,6 +40,8 @@ class Music {
       wet: 0.5,
       feedback: 0.2,
     }
+
+    this.effect_num = 0
   }
 
   tone() {
@@ -65,6 +67,14 @@ class Music {
       },
     }).toDestination()
 
+    this.sampler1 = new Tone.Sampler({
+      urls: {
+        E3: "utils/duck.mp3",
+      },
+
+      volume: -30,
+    }).toDestination()
+
     if (this.effectOn) {
       this.sampler.connect(this.delay)
       this.delay.connect(this.fft)
@@ -75,21 +85,20 @@ class Music {
     }
   }
 
-  noteAttack(key) {
-    this.scale = getScaleRange("C", "major", this.octave)
-    this.note = this.scale[key]
-    this.sampler.triggerAttack(this.note)
+  noteAttack(note) {
+    this.sampler.triggerAttack(note)
   }
 
   noteRelease() {
     this.sampler.triggerRelease()
   }
 
-  noteAttackRelease(note) {
-    // this.scale = getScaleRange("C", "major", this.octave)
-    // console.log(this.scale)
-    // this.note = this.scale[key]
-    this.sampler.triggerAttackRelease(note, "2n")
+  noteAttackRelease(note, eff) {
+    if (eff == 1) {
+      this.sampler.triggerAttackRelease(note, "2n")
+    } else if (eff == 2) {
+      this.sampler1.triggerAttackRelease(note, "2n")
+    }
   }
 
   chord(key) {
@@ -124,5 +133,13 @@ class Music {
         }
       }
     })
+  }
+
+  setEffect(val) {
+    this.effect_num = val
+  }
+
+  get effect() {
+    return this.effect_num
   }
 }

@@ -3,6 +3,7 @@ function Circle(x, y, r, stat = false) {
     options = {
       note: note,
       isStatic: true,
+      effect: SOUND.effect,
     }
   } else {
     options = {
