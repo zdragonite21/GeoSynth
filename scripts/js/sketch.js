@@ -173,10 +173,14 @@ function mouseClicked() {
 function keyPressed() {
   if (keyCode === 72 && hidden == false) {
     $(".trans").animate({ top: "-100px" })
+    $("#fhyt").animate({ right: "-200px" })
+    $("#geo").animate({ right: "-200px" })
     hidden = true
     header = 0
   } else if (keyCode === 72 && hidden == true) {
     $(".trans").animate({ top: "0" })
+    $("#fhyt").animate({ right: "-130px" })
+    $("#geo").animate({ right: "-105px" })
     hidden = false
     header = 50
   }
@@ -255,8 +259,7 @@ function draw() {
   } else if (erase) {
     eraser.show()
     eraser.detect()
-    ev.on()
-    $(".toggle").removeClass("disabled")
+    ev.on(true)
   } else {
     ev.off()
   }

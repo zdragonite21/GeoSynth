@@ -62,6 +62,28 @@ $(document).ready(function () {
     },
   })
 
+  $("#fhyt").on("mouseenter", function () {
+    $(this).animate({ right: "0px" })
+  })
+
+  $("#fhyt").on("mouseleave", function () {
+    $(this).animate({ right: "-130px" })
+    if ($(this).queue("fx").length > 2) {
+      $(this).clearQueue()
+    }
+  })
+
+  $("#geo").on("mouseenter", function () {
+    $(this).animate({ right: "0px" })
+  })
+
+  $("#geo").on("mouseleave", function () {
+    $(this).animate({ right: "-105px" })
+    if ($(this).queue("fx").length > 2) {
+      $(this).clearQueue()
+    }
+  })
+
   $(".drum").on("click", function () {
     var cur = $(this)
     cur.addClass("active")
@@ -119,20 +141,24 @@ $(document).ready(function () {
 
 function every() {
   var everything = $(".ui").not(".butt")
+  var select = $(".ui.dropdown")
 
-  this.on = function () {
+  this.on = function (e = false) {
     dis = true
-    if (!everything.hasClass("disabled")) {
+    if (e) {
+      everything.not(".erase").addClass("disabled")
+    } else {
       everything.addClass("disabled")
-      $(".w").addClass("g")
     }
+
+    select.parent().addClass("disabled")
+    $(".w").addClass("g")
   }
 
   this.off = function () {
     dis = false
-    if (everything.hasClass("disabled")) {
-      everything.removeClass("disabled")
-      $(".w").removeClass("g")
-    }
+    everything.removeClass("disabled")
+    select.parent().removeClass("disabled")
+    $(".w").removeClass("g")
   }
 }
