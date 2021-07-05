@@ -87,6 +87,13 @@ $(document).ready(function () {
     },
   })
 
+  $(".pause").state({
+    text: {
+      active: "Play",
+      inactive: "Pause",
+    },
+  })
+
   $(".akey").click(function () {
     if (!dis) {
       if (!$(this).hasClass("r")) {

@@ -1,12 +1,14 @@
 function Circle(x, y, r, stat = false) {
   if (stat) {
     options = {
+      stat: true,
       note: note,
       isStatic: true,
       effect: SOUND.effect,
     }
   } else {
     options = {
+      stat: false,
       frictionAir: 0,
       friction: 0,
       frictionStatic: 0,

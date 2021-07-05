@@ -77,3 +77,15 @@ function cons(x1, x2, y1, y2, con) {
 
   return { x1: x1, x2: x2, y1: y1, y2: y2 }
 }
+
+function pause() {
+  if ($(".pause").hasClass("red")) {
+    ALL_BODIES.forEach((body) => (body.isStatic = true))
+  } else {
+    ALL_BODIES.forEach(function (body) {
+      if (body.stat == false) {
+        body.isStatic = false
+      }
+    })
+  }
+}

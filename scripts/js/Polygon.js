@@ -5,6 +5,7 @@ function Polygon(
   r,
   R = 0,
   options = {
+    stat: true,
     isStatic: true,
     note: note,
     effect: SOUND.effect,

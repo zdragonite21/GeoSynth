@@ -1,5 +1,6 @@
 function Line(x1, x2, y1, y2, s) {
   options = {
+    stat: true,
     note: note,
     effect: SOUND.effect,
     isStatic: true,

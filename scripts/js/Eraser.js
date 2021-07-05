@@ -30,11 +30,11 @@ function Eraser(x, y, r) {
     if (mouseIsPressed) {
       var checker = Query.point(ALL_BODIES, mouse_vec)
       if (checker.length > 0) {
-        if (checker[0].isStatic == true) {
+        if (checker[0].stat == true) {
           var stat_index = STATIC_BODIES.indexOf(checker[0])
           shapes.splice(stat_index, 1)
           STATIC_BODIES.splice(stat_index, 1)
-        } else if (checker[0].isStatic == false) {
+        } else if (checker[0].stat == false) {
           var nonstat_index = NONSTATIC_BODIES.indexOf(checker[0])
           balls.splice(nonstat_index, 1)
           NONSTATIC_BODIES.splice(nonstat_index, 1)

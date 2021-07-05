@@ -260,4 +260,6 @@ function draw() {
   } else {
     ev.off()
   }
+
+  pause()
 }
