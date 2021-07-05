@@ -79,7 +79,7 @@ function cons(x1, x2, y1, y2, con) {
 }
 
 function pause() {
-  if ($(".pause").hasClass("red")) {
+  if ($(".pause").data("val")) {
     ALL_BODIES.forEach((body) => (body.isStatic = true))
   } else {
     ALL_BODIES.forEach(function (body) {

@@ -5,46 +5,75 @@ $(document).ready(function () {
 
   var input = $(".input")
 
-  var add = $(".butt")
+  var add = $("#enter")
 
   var handler = {
     activate: function () {
       $(this).addClass("active").siblings().removeClass("active")
     },
 
-    color: function () {
-      if ($(this).hasClass("red")) {
-        $(this).addClass("green")
-        $(this).removeClass("red")
+    color: function (id) {
+      if ($(id).hasClass("red")) {
+        $(id).addClass("green")
+        $(id).removeClass("red")
       } else {
-        $(this).addClass("red")
-        $(this).removeClass("green")
+        $(id).addClass("red")
+        $(id).removeClass("green")
+      }
+    },
+
+    tgcolor: function (id) {
+      if ($(id).data("val") == true) {
+        $(id).addClass("green")
+        $(id).removeClass($(id).data("color"))
+      } else {
+        $(id).removeClass("green")
+        $(id).addClass($(id).data("color"))
       }
     },
 
     err: function () {
       if (this.value.length == 0) {
-        if (!add.hasClass("disabled")) {
-          add.addClass("disabled")
-        }
+        add.addClass("disabled")
       } else {
-        if ($(".butt").hasClass("disabled")) {
-          $(".butt").removeClass("disabled")
-        }
+        add.removeClass("disabled")
       }
       if (parseInt(this.value) > 20) {
-        if (!input.hasClass("error")) {
-          input.addClass("error")
-          add.addClass("disabled")
-        }
-      } else if (input.hasClass("error")) {
+        input.addClass("error")
+        add.addClass("disabled")
+      } else {
         input.removeClass("error")
         add.removeClass("disabled")
       }
     },
-  }
 
-  $(".toggle").on("click", handler.color)
+    disable: function (id, but = false) {
+      var all = $(".ui").not($(id))
+
+      if (but) {
+        all = all.not($("#enter"))
+      }
+
+      var sel = $("#select")
+      if ($(id).data("val")) {
+        all.addClass("disabled")
+        sel.parent().addClass("disabled")
+        $(".w").addClass("g")
+      } else {
+        all.removeClass("disabled")
+        sel.parent().removeClass("disabled")
+        $(".w").removeClass("g")
+      }
+    },
+    toggle: function (id) {
+      $(id).data("val", !$(id).data("val"))
+    },
+  }
+  $(".erase").on("click", () => {
+    handler.color("#erase")
+    handler.toggle("#erase")
+    handler.disable("#erase")
+  })
 
   $("#sb").click(function () {
     $(".ui.labeled.icon.sidebar")
@@ -53,6 +82,30 @@ $(document).ready(function () {
   })
 
   inp.on("input", handler.err)
+
+  $("#shape").click(() => {
+    handler.toggle("#shape")
+    handler.tgcolor("#shape")
+    handler.disable("#shape")
+    button1 = !button1
+  })
+
+  $("#ball").click(() => {
+    handler.toggle("#ball")
+    handler.tgcolor("#ball")
+    handler.disable("#ball")
+    button2 = !button2
+  })
+
+  $("#enter").click(() => {
+    handler.toggle("#enter")
+    handler.tgcolor("#enter")
+    $("#hold").data("val", $("#enter").data("val"))
+    handler.disable("#hold", true)
+    set_vel = parseInt($("#in")[0].value)
+    button2 = !button2
+    vset = !vset
+  })
 
   $(".grp").on("click", handler.activate)
 
@@ -109,12 +162,17 @@ $(document).ready(function () {
     },
   })
 
-  $(".pause").state({
-    text: {
-      active: "Play",
-      inactive: "Pause",
-    },
-  })
+  $("#pause")
+    .state({
+      text: {
+        active: "Play",
+        inactive: "Pause",
+      },
+    })
+    .click(() => {
+      handler.toggle("#pause")
+      handler.tgcolor("#pause")
+    })
 
   $(".akey").click(function () {
     if (!dis) {
@@ -139,26 +197,26 @@ $(document).ready(function () {
   })
 })
 
-function every() {
-  var everything = $(".ui").not(".butt")
-  var select = $(".ui.dropdown")
+// function every() {
+//   var everything = $(".ui").not(".butt")
+//   var select = $(".ui.dropdown")
 
-  this.on = function (e = false) {
-    dis = true
-    if (e) {
-      everything.not(".erase").addClass("disabled")
-    } else {
-      everything.addClass("disabled")
-    }
+//   this.on = function (e = false) {
+//     dis = true
+//     if (e) {
+//       everything.not(".erase").addClass("disabled")
+//     } else {
+//       everything.addClass("disabled")
+//     }
 
-    select.parent().addClass("disabled")
-    $(".w").addClass("g")
-  }
+//     select.parent().addClass("disabled")
+//     $(".w").addClass("g")
+//   }
 
-  this.off = function () {
-    dis = false
-    everything.removeClass("disabled")
-    select.parent().removeClass("disabled")
-    $(".w").removeClass("g")
-  }
-}
+//   this.off = function () {
+//     dis = false
+//     everything.removeClass("disabled")
+//     select.parent().removeClass("disabled")
+//     $(".w").removeClass("g")
+//   }
+// }

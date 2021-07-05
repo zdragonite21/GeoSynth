@@ -59,7 +59,6 @@ var erase = false
 var L = false
 var set_vel = 0
 var vset = false
-var ev = new every()
 var mic
 
 function setup() {
@@ -134,11 +133,9 @@ function mouseClicked() {
     if (button1) {
       if (cir) {
         shapes.push(new Circle(poX, poY, shape_rad, true))
-        button1 = false
       } else if (L) {
         if (stay) {
           shapes.push(new Line(poX, pX, poY, pY, stroke_len))
-          button1 = false
           stay = false
           turn = false
         } else {
@@ -147,7 +144,6 @@ function mouseClicked() {
       } else {
         if (stay) {
           shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot))
-          button1 = false
           stay = false
           turn = false
         } else {
@@ -159,10 +155,8 @@ function mouseClicked() {
         var ball = new Circle(poX, poY, ball_rad, false)
         Body.setVelocity(ball.body, vel)
         balls.push(ball)
-        button2 = false
         stay = false
         turn = false
-        vset = false
       } else {
         stay = true
       }
@@ -252,16 +246,11 @@ function draw() {
   }
   if (button1) {
     Poly(poX, poY, side_length, shape_rad, rot, cir, L)
-    ev.on()
   } else if (button2) {
     Cir(poX, poY, ball_rad)
-    ev.on()
   } else if (erase) {
     eraser.show()
     eraser.detect()
-    ev.on(true)
-  } else {
-    ev.off()
   }
 
   pause()

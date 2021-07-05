@@ -68,8 +68,11 @@
 
       <!-- pause -->
       <button
-        class="yellow ui inverted button toggle pause"
+        id="pause"
+        class="yellow ui inverted button pause tg"
         style="position: absolute; left: 80px; margin-top: 10px"
+        data-val="false"
+        data-color="yellow"
       >
         Pause
       </button>
@@ -137,8 +140,10 @@
 
         <div class="ui buttons floated right" style="margin: 5px">
           <button
-            class="ui red button pop"
-            onclick="button1 = true"
+            id="shape"
+            class="ui red button pop tg"
+            data-val="false"
+            data-color="red"
             data-content="Adds a new shape (Use scroll wheel to change size and use shift key to rotate in increments)"
           >
             Add Shape
@@ -175,21 +180,31 @@
           </button>
         </div>
         <button
-          class="ui toggle green button floated right erase"
+          id="erase"
+          class="ui green button floated right erase"
           onclick="erase = !erase"
+          data-val="false"
+          data-color="green"
           style="margin: 5px"
         >
           Erase
         </button>
         <button
+          id="ball"
           class="ui inverted teal button pop floated right"
-          onclick="button2 = true"
+          data-val="false"
+          data-color="teal"
           data-content="Adds a new ball"
           style="margin: 5px"
         >
           Ball
         </button>
-        <div class="ui action small floated right input" style="margin: 5px">
+        <div
+          id="hold"
+          class="ui action small floated right input"
+          style="margin: 5px"
+          data-val="false"
+        >
           <input
             type="text"
             id="in"
@@ -200,7 +215,9 @@
           />
           <button
             class="ui orange button butt disabled"
-            onclick="set_vel = parseInt($('#in')[0].value), button2 = true, vset = true"
+            id="enter"
+            data-color="orange"
+            data-val="false"
           >
             Add
           </button>
