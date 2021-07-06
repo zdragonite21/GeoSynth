@@ -63,3 +63,11 @@ body {
 .g {
   background-color: rgb(172, 172, 172);
 }
+
+.names {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.274);
+  bottom: 0px;
+  padding: 10px;
+  border-radius: 0px 10px 0px 0px;
+}

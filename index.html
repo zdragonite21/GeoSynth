@@ -21,18 +21,35 @@
 
   <body style="background-color: black">
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
-      <a class="item">
-        <i class="home icon"></i>
-        Home
+      <a
+        class="item"
+        onclick=" window.open('https://github.com/zdragonite21/GeoSynth')"
+      >
+        <i class="github icon"></i>
+        Code
       </a>
       <a class="item">
-        <i class="block layout icon"></i>
-        Topics
+        <i class="save icon"></i>
+        Save
       </a>
       <a class="item">
-        <i class="help icon"></i>
-        Friends
+        <i class="upload icon"></i>
+        Upload
       </a>
+      <a class="item">
+        <i class="setting icon"></i>
+        Settings
+      </a>
+      <a id="copy" class="item">
+        <i class="share alternate icon"></i>
+        Share
+      </a>
+    </div>
+
+    <!-- name -->
+
+    <div class="names">
+      <p style="color: white">GeoSynth by Zachary Leong</p>
     </div>
 
     <!-- YouTube -->
@@ -142,9 +159,9 @@
           <button
             id="shape"
             class="ui red button pop tg"
+            data-content="Adds a new shape (Use scroll wheel to change size and use shift key to rotate in increments)"
             data-val="false"
             data-color="red"
-            data-content="Adds a new shape (Use scroll wheel to change size and use shift key to rotate in increments)"
           >
             Add Shape
           </button>
@@ -192,9 +209,9 @@
         <button
           id="ball"
           class="ui inverted teal button pop floated right"
+          data-content="Adds a new ball"
           data-val="false"
           data-color="teal"
-          data-content="Adds a new ball"
           style="margin: 5px"
         >
           Ball

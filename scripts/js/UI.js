@@ -168,6 +168,11 @@ $(document)
       },
     })
 
+    $("#copy").on("click", () => {
+      copy2clip("https://zdragonite21.github.io/GeoSynth")
+      alert("Link Copied!")
+    })
+
     $("#pause")
       .state({
         text: {
@@ -217,6 +222,18 @@ $(document)
   .on("contextmenu", function () {
     return false
   })
+
+function copy2clip(str) {
+  const el = document.createElement("textarea")
+  el.value = str
+  el.setAttribute("readonly", "")
+  el.style.position = "absolute"
+  el.style.left = "-9999px"
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand("copy")
+  document.body.removeChild(el)
+}
 
 // function every() {
 //   var everything = $(".ui").not(".butt")
