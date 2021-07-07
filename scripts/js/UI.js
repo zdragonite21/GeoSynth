@@ -87,6 +87,15 @@ $(document)
         .sidebar("toggle")
     })
 
+    $("#volume").click(() => {
+      handler.toggle("#volume")
+      if ($("#volume").data("val")) {
+        $("#vol").removeClass("up").addClass("off")
+      } else {
+        $("#vol").addClass("up").removeClass("off")
+      }
+    })
+
     inp.on("input", handler.err)
 
     $("#shape").click(() => {
@@ -122,7 +131,19 @@ $(document)
     })
 
     $("#setting").click(() => {
-      $(".ui.modal").modal("show")
+      $("#settings").modal("show")
+    })
+
+    $("#asset").click(() => {
+      $("#assets").modal("show")
+    })
+
+    $("#create").click(() => {
+      $("#creator").modal("show")
+    })
+
+    $("#thanks").click(() => {
+      $("#credits").modal("show")
     })
 
     $("#fhyt").on("mouseenter", function () {

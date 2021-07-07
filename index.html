@@ -20,9 +20,76 @@
   </head>
 
   <body style="background-color: black">
-    <div class="ui modal">
+    <!-- modals -->
+    <div id="settings" class="ui modal">
       <i class="close icon"></i>
       <div class="header">Settings</div>
+
+      <div class="description" style="margin: 20px">
+        <div class="ui header">Sound Level</div>
+        <p>
+          Sounds and stuff
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
+          More settings
+        </p>
+        <p>Anything else?</p>
+      </div>
+
+      <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          Save Changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+    <div id="assets" class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">Assets</div>
+
+      <div class="description" style="margin: 20px">
+        <div class="ui header">Sound Level</div>
+        <p>
+          Sounds and stuff
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
+          More settings
+        </p>
+        <p>Anything else?</p>
+      </div>
+
+      <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          Save Changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+    <div id="creator" class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">About the Creator</div>
+
+      <div class="description" style="margin: 20px">
+        <div class="ui header">Sound Level</div>
+        <p>
+          Sounds and stuff
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
+          More settings
+        </p>
+        <p>Anything else?</p>
+      </div>
+
+      <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          Save Changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+    <div id="credits" class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">Credits</div>
 
       <div class="description" style="margin: 20px">
         <div class="ui header">Sound Level</div>
@@ -51,21 +118,21 @@
         <i class="github icon"></i>
         Code
       </a>
-      <a class="item">
+      <!-- <a class="item">
         <i class="save icon"></i>
         Save
       </a>
       <a class="item">
         <i class="upload icon"></i>
         Upload
+      </a> -->
+      <a id="copy" class="item">
+        <i class="share alternate icon"></i>
+        Share
       </a>
       <a id="setting" class="item">
         <i class="setting icon"></i>
         Settings
-      </a>
-      <a id="copy" class="item">
-        <i class="share alternate icon"></i>
-        Share
       </a>
       <a id="asset" class="item">
         <i class="book icon"></i>
@@ -117,16 +184,29 @@
         Menu
       </button>
 
-      <!-- pause -->
-      <button
-        id="pause"
-        class="yellow ui inverted button pause tg"
+      <div
+        class="ui buttons"
         style="position: absolute; left: 80px; margin-top: 10px"
-        data-val="false"
-        data-color="yellow"
       >
-        Pause
-      </button>
+        <!-- pause -->
+        <button
+          id="pause"
+          class="yellow ui inverted button pause tg"
+          data-val="false"
+          data-color="yellow"
+        >
+          Pause
+        </button>
+
+        <!-- volume -->
+        <button
+          id="volume"
+          class="ui red inverted icon button"
+          data-val="false"
+        >
+          <i id="vol" class="ui icon volume up"></i>
+        </button>
+      </div>
 
       <div
         class="parental shape buttons"
