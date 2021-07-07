@@ -111,22 +111,16 @@ function setup() {
 }
 
 function handleCollision(bodyA, bodyB) {
-  // console.log(bodyA.label, bodyB.label)
-  // handle if eraser is one of the objects
-  // if (bodyA.label === "eraser" || bodyB.label === "eraser") {
-  //   console.log("eraser collided")
-  // } else {
-  //   console.log(bodyA.label, bodyB.label)
-  // }
-  // if bodyA || bodyB === hex -- sampler.triggerAttackRelease(['a3', 'c3', 'e3'], '8n')
   if (bodyA.label == "collad") {
     if (bodyA.note != []) {
       SOUND.noteAttackRelease(bodyA.note, bodyA.effect)
     }
+    bodyB.col = bodyA.col
   } else if (bodyB.label == "collad") {
     if (bodyB.note != []) {
       SOUND.noteAttackRelease(bodyB.note, bodyB.effect)
     }
+    bodyA.col = bodyB.col
   }
 }
 
