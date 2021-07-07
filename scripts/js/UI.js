@@ -121,6 +121,10 @@ $(document)
       },
     })
 
+    $("#setting").click(() => {
+      $(".ui.modal").modal("show")
+    })
+
     $("#fhyt").on("mouseenter", function () {
       $(this).animate({ right: "0px" })
     })

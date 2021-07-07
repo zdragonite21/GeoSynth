@@ -20,6 +20,29 @@
   </head>
 
   <body style="background-color: black">
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">Settings</div>
+
+      <div class="description" style="margin: 20px">
+        <div class="ui header">Sound Level</div>
+        <p>
+          Sounds and stuff
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
+          More settings
+        </p>
+        <p>Anything else?</p>
+      </div>
+
+      <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          Save Changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
       <a
         class="item"
@@ -36,7 +59,7 @@
         <i class="upload icon"></i>
         Upload
       </a>
-      <a class="item">
+      <a id="setting" class="item">
         <i class="setting icon"></i>
         Settings
       </a>
@@ -44,10 +67,21 @@
         <i class="share alternate icon"></i>
         Share
       </a>
+      <a id="asset" class="item">
+        <i class="book icon"></i>
+        Assets
+      </a>
+      <a id="create" class="item">
+        <i class="user icon"></i>
+        Creator
+      </a>
+      <a id="thanks" class="item">
+        <i class="gift icon"></i>
+        Credits
+      </a>
     </div>
 
     <!-- name -->
-
     <div class="names">
       <p style="color: white">GeoSynth by Zachary Leong</p>
     </div>
@@ -244,6 +278,7 @@
 
     <script src="scripts/libs/matter.min.js"></script>
     <script src="scripts/js/UI.js"></script>
+    <script src="scripts/js/Color.js"></script>
     <script src="scripts/js/Math_Funct.js"></script>
     <script src="scripts/js/Box.js"></script>
     <script src="scripts/js/Music.js"></script>
