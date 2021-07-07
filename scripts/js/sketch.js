@@ -17,6 +17,9 @@ var ALL_BODIES = []
 
 var SOUND
 
+var stroke_col = 255
+var stroke_weight = 3
+
 var engine
 var world
 var cir1
@@ -185,6 +188,10 @@ function mouseWheel(event) {
       shape_rad += event.delta / 20
       shape_rad = constrain(shape_rad, 30, 150)
     }
+  }
+  if (button2) {
+    ball_rad += event.delta / 40
+    ball_rad = constrain(ball_rad, 20, 40)
   }
 }
 

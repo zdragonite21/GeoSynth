@@ -34,8 +34,8 @@ function Polygon(x, y, s, r, R = 0, col) {
     push()
     translate(pos.x, pos.y)
     rotate(angle)
-    strokeWeight(1)
-    stroke(255)
+    strokeWeight(stroke_weight)
+    stroke(stroke_col)
     fill(color[0], color[1], color[2])
 
     beginShape()
@@ -53,15 +53,15 @@ function Polygon(x, y, s, r, R = 0, col) {
 function Poly(X, Y, s, r, a, c, l, col) {
   var pos = { x: X, y: constrain(Y, header, height) }
   if (c) {
-    strokeWeight(1)
-    stroke(255)
+    strokeWeight(stroke_weight)
+    stroke(stroke_col)
     fill(col[0], col[1], col[2])
     ellipse(pos.x, pos.y, r * 2, r * 2)
   } else if (l && turn) {
     Ln({ x: X, y: Y }, pX, pY, col)
   } else if (l) {
-    strokeWeight(1)
-    stroke(255)
+    strokeWeight(stroke_weight)
+    stroke(stroke_col)
     fill(col[0], col[1], col[2])
     ellipse(pos.x, pos.y, stroke_len, stroke_len)
   } else {
@@ -77,8 +77,8 @@ function Poly(X, Y, s, r, a, c, l, col) {
     push()
     translate(pos.x, pos.y)
     rotate(angle)
-    strokeWeight(1)
-    stroke(255)
+    strokeWeight(stroke_weight)
+    stroke(stroke_col)
     fill(col[0], col[1], col[2])
 
     beginShape()

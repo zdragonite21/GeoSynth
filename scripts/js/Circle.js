@@ -44,8 +44,8 @@ function Circle(x, y, r, stat = false, col = [117, 117, 117]) {
     push()
     translate(pos.x, pos.y)
     rotate(angle)
-    strokeWeight(1)
-    stroke(255)
+    strokeWeight(stroke_weight)
+    stroke(stroke_col)
     fill(color[0], color[1], color[2])
     ellipse(0, 0, this.r * 2, this.r * 2)
 
@@ -58,8 +58,8 @@ function Cir(X, Y, r) {
 
   push()
   translate(pos.x, pos.y)
-  strokeWeight(1)
-  stroke(255)
+  strokeWeight(stroke_weight)
+  stroke(stroke_col)
   fill(117)
   ellipse(0, 0, r * 2, r * 2)
 

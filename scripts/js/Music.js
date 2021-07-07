@@ -87,7 +87,7 @@ class Music {
         C2: "utils/drum/samples/SnareDrumDry.wav",
       },
 
-      volume: -30,
+      volume: -25,
     }).toDestination()
 
     if (this.effectOn) {
@@ -171,6 +171,9 @@ class Music {
       $("#per").attr("hidden", true)
     } else if (this.effect_num == 3) {
       $("#per").attr("hidden", false)
+      $(".piano").attr("hidden", true)
+    } else if (this.effect_num == 0) {
+      $("#per").attr("hidden", true)
       $(".piano").attr("hidden", true)
     }
   }
