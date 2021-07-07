@@ -130,6 +130,15 @@ $(document)
       },
     })
 
+    $(".ui.modal").modal({
+      onShow: () => {
+        $(".pause").trigger("click")
+      },
+      onHidden: () => {
+        $(".pause").trigger("click")
+      },
+    })
+
     $("#setting").click(() => {
       $("#settings").modal("show")
     })
