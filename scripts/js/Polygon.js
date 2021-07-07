@@ -1,16 +1,11 @@
-function Polygon(
-  x,
-  y,
-  s,
-  r,
-  R = 0,
+function Polygon(x, y, s, r, R = 0, col) {
   options = {
     stat: true,
     isStatic: true,
     note: note,
     effect: SOUND.effect,
+    col: col,
   }
-) {
   this.body = Bodies.polygon(x, y, s, r, options)
   this.r = r
   this.s = s
@@ -34,13 +29,14 @@ function Polygon(
     var pos = this.body.position
     var angle = this.body.angle - PI / s
     var an = TWO_PI / s
+    var color = this.body.col
 
     push()
     translate(pos.x, pos.y)
     rotate(angle)
     strokeWeight(1)
     stroke(255)
-    fill(127)
+    fill(color[0], color[1], color[2])
 
     beginShape()
     for (let a = 0; a < TWO_PI; a += an) {
@@ -54,19 +50,19 @@ function Polygon(
   }
 }
 
-function Poly(X, Y, s, r, a, c, l) {
+function Poly(X, Y, s, r, a, c, l, col) {
   var pos = { x: X, y: constrain(Y, header, height) }
   if (c) {
     strokeWeight(1)
     stroke(255)
-    fill(177)
+    fill(col[0], col[1], col[2])
     ellipse(pos.x, pos.y, r * 2, r * 2)
   } else if (l && turn) {
-    Ln({ x: X, y: Y }, pX, pY)
+    Ln({ x: X, y: Y }, pX, pY, col)
   } else if (l) {
     strokeWeight(1)
     stroke(255)
-    fill(177)
+    fill(col[0], col[1], col[2])
     ellipse(pos.x, pos.y, stroke_len, stroke_len)
   } else {
     var angle = a - PI / s
@@ -83,7 +79,7 @@ function Poly(X, Y, s, r, a, c, l) {
     rotate(angle)
     strokeWeight(1)
     stroke(255)
-    fill(177)
+    fill(col[0], col[1], col[2])
 
     beginShape()
     for (let i = 0; i < TWO_PI; i += an) {

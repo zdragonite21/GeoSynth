@@ -60,6 +60,8 @@ var L = false
 var set_vel = 0
 var vset = false
 var mic
+var color
+var amp = 50
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight)
@@ -81,12 +83,12 @@ function setup() {
   ground2 = Bodies.rectangle(0, height / 2, 10, height, option)
   ground3 = Bodies.rectangle(width, height / 2, 10, height, option)
 
-  hex = new Polygon(width / 2, height / 2, 6, 80, 0)
+  hex = new Polygon(width / 2, height / 2, 6, 80, 0, [117, 117, 117])
 
   shapes.push(hex)
 
-  cir1 = new Circle(70, 70, 40, false)
-  cir2 = new Circle(220, 220, 40, false)
+  cir1 = new Circle(70, 70, 40, false, [117, 117, 117])
+  cir2 = new Circle(220, 220, 40, false, [117, 117, 117])
 
   balls.push(cir1, cir2)
 
@@ -132,10 +134,10 @@ function mouseClicked() {
   if (mouseX >= 0 && mouseY >= header) {
     if (button1) {
       if (cir) {
-        shapes.push(new Circle(poX, poY, shape_rad, true))
+        shapes.push(new Circle(poX, poY, shape_rad, true, color))
       } else if (L) {
         if (stay) {
-          shapes.push(new Line(poX, pX, poY, pY, stroke_len))
+          shapes.push(new Line(poX, pX, poY, pY, stroke_len, color))
           stay = false
           turn = false
         } else {
@@ -143,7 +145,7 @@ function mouseClicked() {
         }
       } else {
         if (stay) {
-          shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot))
+          shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot, color))
           stay = false
           turn = false
         } else {
@@ -194,6 +196,7 @@ function mouseWheel(event) {
 
 function draw() {
   background(51)
+  color = Color(note, SOUND.effect)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))
 
   for (var i = 0; i < shapes.length; i++) {
@@ -245,7 +248,8 @@ function draw() {
     }
   }
   if (button1) {
-    Poly(poX, poY, side_length, shape_rad, rot, cir, L)
+    var lcolor = color.map((val) => constrain(val + amp, 0, 255))
+    Poly(poX, poY, side_length, shape_rad, rot, cir, L, lcolor)
   } else if (button2) {
     Cir(poX, poY, ball_rad)
   } else if (erase) {

@@ -191,15 +191,20 @@ $(document)
 
     $(".akey").click(function () {
       if (!dis) {
-        if (!$(this).hasClass("r")) {
-          $(this)
-            .siblings()
-            .removeClass("r")
-            .removeClass("bl")
-            .removeClass("db")
-          $(this).addClass("r").removeClass("bl").removeClass("db")
-          note = $(this).data("note")
+        $(this)
+          .siblings()
+          .removeAttr("style")
+          .removeClass("bl")
+          .removeClass("db")
+        $(this).removeClass("bl").removeClass("db")
+        note = $(this).data("note")
+        if (SOUND.effect == 1) {
+          var col = piano[note]
+        } else if (SOUND.effect == 2) {
+          var col = Color(note, 2)
         }
+        $(this).css("background-color", `rgb(${col[0]}, ${col[1]}, ${col[2]})`)
+
         if (keyIsDown(16)) {
           SOUND.noteAttackRelease(note, SOUND.effect)
         }

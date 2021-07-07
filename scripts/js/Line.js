@@ -1,9 +1,10 @@
-function Line(x1, x2, y1, y2, s) {
+function Line(x1, x2, y1, y2, s, col) {
   options = {
     stat: true,
     note: note,
     effect: SOUND.effect,
     isStatic: true,
+    col: col,
   }
 
   conv = converter(x1, x2, y1, y2, s)
@@ -27,25 +28,26 @@ function Line(x1, x2, y1, y2, s) {
   this.show = function () {
     var pos = this.body.position
     var angle = this.body.angle
+    var color = this.body.col
     push()
     translate(pos.x, pos.y)
     rotate(angle)
     strokeWeight(1)
     stroke(255)
-    fill(127)
+    fill(color[0], color[1], color[2])
     rect(0, 0, length, width)
     pop()
   }
 }
 
-function Ln(base, X, Y) {
+function Ln(base, X, Y, col) {
   conv = converter(base.x, X, base.y, Y, stroke_len)
   push()
   translate(conv.x, conv.y)
   rotate(conv.a)
   strokeWeight(1)
   stroke(255)
-  fill(177)
+  fill(col[0], col[1], col[2])
   rect(0, 0, conv.l, conv.w)
   pop()
 }

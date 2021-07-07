@@ -1,10 +1,11 @@
-function Circle(x, y, r, stat = false) {
+function Circle(x, y, r, stat = false, col = [117, 117, 117]) {
   if (stat) {
     options = {
       stat: true,
       note: note,
       isStatic: true,
       effect: SOUND.effect,
+      col: col,
     }
   } else {
     options = {
@@ -17,6 +18,7 @@ function Circle(x, y, r, stat = false) {
       collisionFilter: {
         mask: 0x001,
       },
+      col: col,
     }
   }
 
@@ -37,13 +39,14 @@ function Circle(x, y, r, stat = false) {
   this.show = function () {
     var pos = this.body.position
     var angle = this.body.angle
+    var color = this.body.col
 
     push()
     translate(pos.x, pos.y)
     rotate(angle)
     strokeWeight(1)
     stroke(255)
-    fill(127)
+    fill(color[0], color[1], color[2])
     ellipse(0, 0, this.r * 2, this.r * 2)
 
     pop()
@@ -57,7 +60,7 @@ function Cir(X, Y, r) {
   translate(pos.x, pos.y)
   strokeWeight(1)
   stroke(255)
-  fill(177)
+  fill(117)
   ellipse(0, 0, r * 2, r * 2)
 
   pop()
