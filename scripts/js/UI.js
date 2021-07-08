@@ -261,14 +261,16 @@ $(document)
       if (dis) {
         $(en).trigger("click")
       }
+    } else if (event.which === 32) {
+      event.preventDefault()
     }
   })
   .on("contextmenu", function () {
     return false
   })
-  .mousemove(function (event) {
-    if (document.activeElement != document.body) document.activeElement.blur()
-  })
+// .mousemove(function (event) {
+//   if (document.activeElement != document.body) document.activeElement.blur()
+// })
 
 function copy2clip(str) {
   const el = document.createElement("textarea")
