@@ -240,7 +240,7 @@ function mouseWheel(event) {
   }
   if (button2) {
     ball_rad += event.delta / 40
-    ball_rad = constrain(ball_rad, 20, 40)
+    ball_rad = constrain(ball_rad, 10, 40)
   }
 }
 

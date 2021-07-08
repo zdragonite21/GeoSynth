@@ -170,6 +170,10 @@ $(document)
       $("#begin").modal("show")
     })
 
+    $("#hotkey").click(() => {
+      $("#shortcut").modal("show")
+    })
+
     $("#fhyt").on("mouseenter", function () {
       $(this).animate({ right: "0px" })
     })
