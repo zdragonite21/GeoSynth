@@ -21,6 +21,28 @@
 
   <body style="background-color: black">
     <!-- modals -->
+    <div id="begin" class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">GeoSynth</div>
+
+      <div class="description" style="margin: 20px">
+        <div class="ui header">Sound Level</div>
+        <p>
+          Sounds and stuff
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
+          More settings
+        </p>
+        <p>Anything else?</p>
+      </div>
+
+      <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          Save Changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
     <div id="settings" class="ui modal">
       <i class="close icon"></i>
       <div class="header">Settings</div>
@@ -227,7 +249,7 @@
 
         <div style="float: left; margin: 7px" hidden="true" id="per">
           <div class="ui vertical buttons small" style="margin-right: 5px">
-            <button data-val="0" class="ui button drum">Snare</button>
+            <button data-val="0" class="ui active button drum">Snare</button>
             <button data-val="1" class="ui button drum">Dry</button>
           </div>
           <button data-val="2" class="ui button small drum">Cymbal</button>

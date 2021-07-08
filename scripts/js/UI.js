@@ -4,6 +4,8 @@ var en = ""
 
 $(document)
   .ready(function () {
+    $("#begin").modal("show")
+
     var inp = $("#in")
 
     var input = $(".input")
@@ -91,8 +93,10 @@ $(document)
       handler.toggle("#volume")
       if ($("#volume").data("val")) {
         $("#vol").removeClass("up").addClass("off")
+        SOUND.mute(true)
       } else {
         $("#vol").addClass("up").removeClass("off")
+        SOUND.mute(false)
       }
     })
 
@@ -130,14 +134,16 @@ $(document)
       },
     })
 
-    $(".ui.modal").modal({
-      onShow: () => {
-        $(".pause").trigger("click")
-      },
-      onHidden: () => {
-        $(".pause").trigger("click")
-      },
-    })
+    $(".ui.modal")
+      .not("#begin")
+      .modal({
+        onShow: () => {
+          $(".pause").trigger("click")
+        },
+        onHidden: () => {
+          $(".pause").trigger("click")
+        },
+      })
 
     $("#setting").click(() => {
       $("#settings").modal("show")
@@ -181,7 +187,6 @@ $(document)
       var cur = $(this)
       cur.addClass("active")
       note = SOUND.drum(cur.data("val"))
-      console.log(note)
 
       if (keyIsDown(16)) {
         SOUND.noteAttackRelease(note, 3)
@@ -252,7 +257,6 @@ $(document)
   })
   .keyup((event) => {
     if (event.key === "Escape") {
-      console.log("yay")
       if (dis) {
         $(en).trigger("click")
       }

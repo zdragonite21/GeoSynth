@@ -176,6 +176,21 @@ function keyPressed() {
     $("#geo").animate({ right: "-105px" })
     hidden = false
     header = 50
+  } else if (keyCode === 32) {
+    // space
+  } else if (keyCode === 13) {
+    // enter
+  } else if (keyCode === 66) {
+    // b
+  } else if (keyCode === 83) {
+    // s
+  } else if (keyCode === 49) {
+    // 1
+  } else if (keyCode === 50) {
+  } else if (keyCode === 51) {
+  } else if (keyCode === 52) {
+  } else if (keyCode === 53) {
+  } else if (keyCode === 54) {
   }
 }
 

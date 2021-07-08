@@ -42,6 +42,8 @@ class Music {
     }
 
     this.effect_num = 0
+    this.piano_notes = "C3"
+    this.drum_note = "B1"
   }
 
   tone() {
@@ -167,11 +169,30 @@ class Music {
     this.effect_num = val
 
     if (this.effect_num == 1 || this.effect_num == 2) {
+      this.drum_note = note
+      note = this.piano_notes
       $(".piano").attr("hidden", false)
       $("#per").attr("hidden", true)
+      var key = $(".akey")
+      console.log(note)
+      for (var i = 0; i < key.length; i++) {
+        if ($(key[i]).data("note") == note) {
+          $(key[i]).trigger("click")
+          break
+        }
+      }
     } else if (this.effect_num == 3) {
+      this.piano_notes = note
+      note = this.drum_note
       $("#per").attr("hidden", false)
       $(".piano").attr("hidden", true)
+      var drum = $(".drum")
+      for (var i = 0; i < drum.length; i++) {
+        if ($(drum[i]).hasClass("active")) {
+          note = SOUND.drum($(drum[i]).data("val"))
+          break
+        }
+      }
     } else if (this.effect_num == 0) {
       $("#per").attr("hidden", true)
       $(".piano").attr("hidden", true)
@@ -184,5 +205,13 @@ class Music {
 
   drum(val) {
     return this.drums[val]
+  }
+
+  mute(yes) {
+    if (yes) {
+      Tone.Master.mute = true
+    } else {
+      Tone.Master.mute = false
+    }
   }
 }
