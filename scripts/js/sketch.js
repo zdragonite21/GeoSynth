@@ -83,10 +83,10 @@ function setup() {
 
   rectMode(CENTER)
 
-  ground = Bodies.rectangle(width / 2, height, width, 10, option)
-  ground1 = Bodies.rectangle(width / 2, 0, width, 10, option)
-  ground2 = Bodies.rectangle(0, height / 2, 10, height, option)
-  ground3 = Bodies.rectangle(width, height / 2, 10, height, option)
+  ground = Bodies.rectangle(width / 2, height + 20, width, 50, option)
+  ground1 = Bodies.rectangle(width / 2, -20, width, 50, option)
+  ground2 = Bodies.rectangle(-20, height / 2, 50, height, option)
+  ground3 = Bodies.rectangle(width + 20, height / 2, 50, height, option)
 
   hex = new Polygon(width / 2, height / 2, 6, 80, 0, [117, 117, 117])
 
