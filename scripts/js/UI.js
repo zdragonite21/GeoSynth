@@ -2,6 +2,72 @@ var dis = false
 
 var en = ""
 
+var handler = {
+  activate: function () {
+    $(this).addClass("active").siblings().removeClass("active")
+  },
+
+  color: function (id) {
+    if ($(id).hasClass("red")) {
+      $(id).addClass("green")
+      $(id).removeClass("red")
+    } else {
+      $(id).addClass("red")
+      $(id).removeClass("green")
+    }
+  },
+
+  tgcolor: function (id) {
+    if ($(id).data("val") == true) {
+      $(id).addClass("green")
+      $(id).removeClass($(id).data("color"))
+    } else {
+      $(id).removeClass("green")
+      $(id).addClass($(id).data("color"))
+    }
+  },
+
+  err: function () {
+    if (this.value.length == 0) {
+      add.addClass("disabled")
+    } else {
+      add.removeClass("disabled")
+    }
+    if (parseInt(this.value) > 20) {
+      input.addClass("error")
+      add.addClass("disabled")
+    } else {
+      input.removeClass("error")
+      add.removeClass("disabled")
+    }
+  },
+
+  disable: function (id, but = false) {
+    var all = $(".ui").not($(id))
+
+    if (but) {
+      all = all.not($("#enter"))
+    }
+
+    var sel = $("#select")
+    if ($(id).data("val")) {
+      all.addClass("disabled")
+      sel.parent().addClass("disabled")
+      $(".w").addClass("g")
+      dis = true
+      en = but ? "#enter" : id
+    } else {
+      all.removeClass("disabled")
+      sel.parent().removeClass("disabled")
+      $(".w").removeClass("g")
+      dis = false
+    }
+  },
+  toggle: function (id) {
+    $(id).data("val", !$(id).data("val"))
+  },
+}
+
 $(document)
   .ready(function () {
     $("#begin").modal("show")
@@ -12,71 +78,6 @@ $(document)
 
     var add = $("#enter")
 
-    var handler = {
-      activate: function () {
-        $(this).addClass("active").siblings().removeClass("active")
-      },
-
-      color: function (id) {
-        if ($(id).hasClass("red")) {
-          $(id).addClass("green")
-          $(id).removeClass("red")
-        } else {
-          $(id).addClass("red")
-          $(id).removeClass("green")
-        }
-      },
-
-      tgcolor: function (id) {
-        if ($(id).data("val") == true) {
-          $(id).addClass("green")
-          $(id).removeClass($(id).data("color"))
-        } else {
-          $(id).removeClass("green")
-          $(id).addClass($(id).data("color"))
-        }
-      },
-
-      err: function () {
-        if (this.value.length == 0) {
-          add.addClass("disabled")
-        } else {
-          add.removeClass("disabled")
-        }
-        if (parseInt(this.value) > 20) {
-          input.addClass("error")
-          add.addClass("disabled")
-        } else {
-          input.removeClass("error")
-          add.removeClass("disabled")
-        }
-      },
-
-      disable: function (id, but = false) {
-        var all = $(".ui").not($(id))
-
-        if (but) {
-          all = all.not($("#enter"))
-        }
-
-        var sel = $("#select")
-        if ($(id).data("val")) {
-          all.addClass("disabled")
-          sel.parent().addClass("disabled")
-          $(".w").addClass("g")
-          dis = true
-          en = but ? "#enter" : id
-        } else {
-          all.removeClass("disabled")
-          sel.parent().removeClass("disabled")
-          $(".w").removeClass("g")
-          dis = false
-        }
-      },
-      toggle: function (id) {
-        $(id).data("val", !$(id).data("val"))
-      },
-    }
     $(".erase").on("click", () => {
       handler.color("#erase")
       handler.toggle("#erase")
@@ -264,6 +265,9 @@ $(document)
   })
   .on("contextmenu", function () {
     return false
+  })
+  .mousemove(function (event) {
+    if (document.activeElement != document.body) document.activeElement.blur()
   })
 
 function copy2clip(str) {

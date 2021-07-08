@@ -174,7 +174,6 @@ class Music {
       $(".piano").attr("hidden", false)
       $("#per").attr("hidden", true)
       var key = $(".akey")
-      console.log(note)
       for (var i = 0; i < key.length; i++) {
         if ($(key[i]).data("note") == note) {
           $(key[i]).trigger("click")

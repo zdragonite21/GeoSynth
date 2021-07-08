@@ -79,13 +79,15 @@ function cons(x1, x2, y1, y2, con) {
 }
 
 function pause() {
-  if ($(".pause").data("val")) {
-    ALL_BODIES.forEach((body) => (body.isStatic = true))
-  } else {
-    ALL_BODIES.forEach(function (body) {
-      if (body.stat == false) {
-        body.isStatic = false
-      }
-    })
+  if (!$("#pause").hasClass("disabled")) {
+    if ($("#pause").data("val")) {
+      ALL_BODIES.forEach((body) => (body.isStatic = true))
+    } else {
+      ALL_BODIES.forEach(function (body) {
+        if (body.stat == false) {
+          body.isStatic = false
+        }
+      })
+    }
   }
 }

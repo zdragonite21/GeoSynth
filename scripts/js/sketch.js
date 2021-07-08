@@ -67,7 +67,8 @@ var color
 var amp = 50
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight)
+  var canvas = createCanvas(window.innerWidth, window.innerHeight)
+  canvas.style("z-index", -2)
   engine = Engine.create()
   world = engine.world
   world.gravity.y = 0
@@ -177,20 +178,51 @@ function keyPressed() {
     hidden = false
     header = 50
   } else if (keyCode === 32) {
-    // space
-  } else if (keyCode === 13) {
-    // enter
+    if (!$("#pause").hasClass("disabled")) {
+      $("#pause").trigger("click")
+    }
   } else if (keyCode === 66) {
-    // b
+    if (!$("#ball").hasClass("disabled")) {
+      handler.toggle("#ball")
+      handler.tgcolor("#ball")
+      handler.disable("#ball")
+      button2 = !button2
+    }
   } else if (keyCode === 83) {
-    // s
+    if (!$("#shape").hasClass("disabled")) {
+      handler.toggle("#shape")
+      handler.tgcolor("#shape")
+      handler.disable("#shape")
+      button1 = !button1
+    }
   } else if (keyCode === 49) {
-    // 1
+    if (!$("#line").hasClass("disabled")) {
+      $("#line").trigger("click")
+    }
   } else if (keyCode === 50) {
+    if (!$("#tri").hasClass("disabled")) {
+      $("#tri").trigger("click")
+    }
   } else if (keyCode === 51) {
+    if (!$("#sq").hasClass("disabled")) {
+      $("#sq").trigger("click")
+    }
   } else if (keyCode === 52) {
+    if (!$("#pent").hasClass("disabled")) {
+      $("#pent").trigger("click")
+    }
   } else if (keyCode === 53) {
+    if (!$("#hexa").hasClass("disabled")) {
+      $("#hexa").trigger("click")
+    }
   } else if (keyCode === 54) {
+    if (!$("#line").hasClass("disabled")) {
+      $("#line").trigger("click")
+    }
+  } else if (keyCode === 77) {
+    if (!$("#circle").hasClass("disabled")) {
+      $("#circle").trigger("click")
+    }
   }
 }
 
