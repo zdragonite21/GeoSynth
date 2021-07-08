@@ -5,6 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addon"></script>
 
+    <title>GeoSynth</title>
     <link rel="stylesheet" href="styles/style.css" />
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,6 +18,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/state.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
     <script src="scripts/libs/theoryHelper.js"></script>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="utils/Images/hexagon.png"
+    />
   </head>
 
   <body style="background-color: black">
@@ -26,21 +32,42 @@
       <div class="header">GeoSynth</div>
 
       <div class="description" style="margin: 20px">
-        <div class="ui header">Sound Level</div>
+        <div class="ui header">Welcome!</div>
         <p>
-          Sounds and stuff
-          <a href="https://www.gravatar.com" target="_blank">gravatar</a>
-          More settings
+          <a href="https://github.com/zdragonite21/GeoSynth" target="_blank"
+            >GeoSynth</a
+          >
+          is a open source visual synthisizer for the web. Coded purely from
+          Javascript, HTML, and CSS, GeoSynth uses Javascript libraries like
+          Matter.js, Jquery.js, Tone.js, p5.js, and Semantic UI to create
+          stunning visuals and sounds
         </p>
-        <p>Anything else?</p>
-      </div>
-
-      <div class="actions">
-        <div class="ui black deny button">Cancel</div>
-        <div class="ui positive right labeled icon button">
-          Save Changes
-          <i class="checkmark icon"></i>
-        </div>
+        <p>
+          Digitally synthesizers traditionally use knobs, sliders, and buttons
+          to create and manipulate music. The only visuals provided are audio
+          waveforms. GeoSynth combines fun visuals with synthesized audio to
+          create a more enjoyable experience. My inspiration came from a
+          Geometric Construction class from Michigan Math and Science Scholars.
+          GeoSynth uses balls that move at a constant velocity, and when they
+          collide with a shape, they reflect off and produce an assigned note.
+          Having played three musical instruments, I implemented piano notes to
+          keep things simple. In addition, I’ve added, drum beats, duck sounds,
+          and more. I hope to bring a smile to people’s faces when they compose
+          with GeoSynth and stimulate their creative thinking.
+        </p>
+        <div class="ui header">Instructions</div>
+        <p style="font-weight: bold; font-size: 15px; color: red">
+          Hover over any button for more instructions and shortcuts!
+        </p>
+        <p>
+          The main thing to note is the effects dropdown controls which type of
+          musical effect, the shape buttons allow you to choose shapes and add
+          them, the ball button allows you to add balls that move at a certain
+          velocity to the scene, the eraser allows you to remove anything you
+          don't want, and the menu button is for more settings, credits, the
+          source code, and more.
+        </p>
+        <p>Good luck and have fun!</p>
       </div>
     </div>
     <div id="settings" class="ui modal">
@@ -167,6 +194,10 @@
       <a id="thanks" class="item">
         <i class="gift icon"></i>
         Credits
+      </a>
+      <a id="intro" class="item">
+        <i class="envelope icon"></i>
+        Intro
       </a>
     </div>
 

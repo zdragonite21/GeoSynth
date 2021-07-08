@@ -82,12 +82,15 @@ function pause() {
   if (!$("#pause").hasClass("disabled")) {
     if ($("#pause").data("val")) {
       ALL_BODIES.forEach((body) => (body.isStatic = true))
+      paused = true
     } else {
       ALL_BODIES.forEach(function (body) {
         if (body.stat == false) {
           body.isStatic = false
         }
       })
+
+      paused = false
     }
   }
 }

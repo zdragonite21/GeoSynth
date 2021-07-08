@@ -65,6 +65,7 @@ var vset = false
 var mic
 var color
 var amp = 50
+var paused = false
 
 function setup() {
   var canvas = createCanvas(window.innerWidth, window.innerHeight)
@@ -155,6 +156,7 @@ function mouseClicked() {
         var ball = new Circle(poX, poY, ball_rad, false)
         Body.setVelocity(ball.body, vel)
         balls.push(ball)
+        ball.body.isStatic = paused
         stay = false
         turn = false
       } else {

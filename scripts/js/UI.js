@@ -70,7 +70,7 @@ var handler = {
 
 $(document)
   .ready(function () {
-    $("#begin").modal("show")
+    $("#begin").modal({ closable: false, transition: "fade" }).modal("show")
 
     var inp = $("#in")
 
@@ -135,16 +135,14 @@ $(document)
       },
     })
 
-    $(".ui.modal")
-      .not("#begin")
-      .modal({
-        onShow: () => {
-          $(".pause").trigger("click")
-        },
-        onHidden: () => {
-          $(".pause").trigger("click")
-        },
-      })
+    $(".ui.modal").not("#begin").modal({
+      // onShow: () => {
+      //   $(".pause").trigger("click")
+      // },
+      // onHidden: () => {
+      //   $(".pause").trigger("click")
+      // },
+    })
 
     $("#setting").click(() => {
       $("#settings").modal("show")
@@ -160,6 +158,10 @@ $(document)
 
     $("#thanks").click(() => {
       $("#credits").modal("show")
+    })
+
+    $("#intro").click(() => {
+      $("#begin").modal("show")
     })
 
     $("#fhyt").on("mouseenter", function () {
