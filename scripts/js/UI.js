@@ -156,6 +156,12 @@ $(document)
       $("#creator").modal("show")
     })
 
+    $("#creator").modal({
+      onVisible: () => {
+        $("#me").transition("jiggle")
+      },
+    })
+
     $("#thanks").click(() => {
       $("#credits").modal("show")
     })
