@@ -197,35 +197,39 @@ function keyPressed() {
       handler.disable("#shape")
       button1 = !button1
     }
-  } else if (keyCode === 49) {
-    if (!$("#line").hasClass("disabled")) {
-      $("#line").trigger("click")
-    }
-  } else if (keyCode === 50) {
-    if (!$("#tri").hasClass("disabled")) {
-      $("#tri").trigger("click")
-    }
-  } else if (keyCode === 51) {
-    if (!$("#sq").hasClass("disabled")) {
-      $("#sq").trigger("click")
-    }
-  } else if (keyCode === 52) {
-    if (!$("#pent").hasClass("disabled")) {
-      $("#pent").trigger("click")
-    }
-  } else if (keyCode === 53) {
-    if (!$("#hexa").hasClass("disabled")) {
-      $("#hexa").trigger("click")
-    }
-  } else if (keyCode === 54) {
-    if (!$("#line").hasClass("disabled")) {
-      $("#line").trigger("click")
-    }
-  } else if (keyCode === 77) {
-    if (!$("#circle").hasClass("disabled")) {
-      $("#circle").trigger("click")
+  } else if (keyCode === 69) {
+    if (!$("#erase").hasClass("disabled")) {
+      handler.toggle("#erase")
+      handler.color("#erase")
+      handler.disable("#erase")
+      erase = !erase
     }
   }
+  // } else if (keyCode === 90) {
+  //   if (!$("#line").hasClass("disabled")) {
+  //     $("#line").trigger("click")
+  //   }
+  // } else if (keyCode === 88) {
+  //   if (!$("#tri").hasClass("disabled")) {
+  //     $("#tri").trigger("click")
+  //   }
+  // } else if (keyCode === 67) {
+  //   if (!$("#sq").hasClass("disabled")) {
+  //     $("#sq").trigger("click")
+  //   }
+  // } else if (keyCode === 52) {
+  //   if (!$("#pent").hasClass("disabled")) {
+  //     $("#pent").trigger("click")
+  //   }
+  // } else if (keyCode === 53) {
+  //   if (!$("#hexa").hasClass("disabled")) {
+  //     $("#hexa").trigger("click")
+  //   }
+  // } else if (keyCode === 77) {
+  //   if (!$("#circle").hasClass("disabled")) {
+  //     $("#circle").trigger("click")
+  //   }
+  // }
 }
 
 function mouseWheel(event) {

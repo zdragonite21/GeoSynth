@@ -215,7 +215,7 @@ $(document)
     $(".pop").popup({
       inline: true,
       delay: {
-        show: 1000,
+        show: 500,
         hide: 0,
       },
     })

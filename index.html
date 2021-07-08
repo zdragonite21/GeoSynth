@@ -252,10 +252,10 @@
         <i class="share alternate icon"></i>
         Share
       </a>
-      <a id="setting" class="item">
+      <!-- <a id="setting" class="item">
         <i class="setting icon"></i>
         Settings
-      </a>
+      </a> -->
       <a id="asset" class="item">
         <i class="book icon"></i>
         Assets
@@ -307,9 +307,10 @@
 
     <div id="header" class="trans" style="position: relative">
       <button
-        class="ui inverted icon button"
+        class="ui inverted icon button pop"
         id="sb"
         style="position: absolute; margin: 10px"
+        data-content="Allows you to access sidebar tools. No hotkey."
       >
         Menu
       </button>
@@ -321,9 +322,10 @@
         <!-- pause -->
         <button
           id="pause"
-          class="yellow ui inverted button pause tg"
+          class="yellow ui inverted button pause tg pop"
           data-val="false"
           data-color="yellow"
+          data-content="Pauses everything in canvas. (tip: you can still edit while the scene is paused) Hotkey: spacebar"
         >
           Pause
         </button>
@@ -331,8 +333,9 @@
         <!-- volume -->
         <button
           id="volume"
-          class="ui red inverted icon button"
+          class="ui red inverted icon button pop"
           data-val="false"
+          data-content="Mutes/unmutes the sound. Hotkey: m"
         >
           <i id="vol" class="ui icon volume up"></i>
         </button>
@@ -403,7 +406,7 @@
           <button
             id="shape"
             class="ui red button pop tg"
-            data-content="Adds a new shape (Use scroll wheel to change size and use shift key to rotate in increments)"
+            data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments) Hotkey: s"
             data-val="false"
             data-color="red"
           >
@@ -454,29 +457,31 @@
         </div>
         <button
           id="erase"
-          class="ui green button floated right erase"
+          class="ui green button floated right pop erase"
           onclick="erase = !erase"
           data-val="false"
           data-color="green"
+          data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
           style="margin: 5px"
         >
           Erase
         </button>
         <button
           id="ball"
-          class="ui inverted teal button pop floated right"
-          data-content="Adds a new ball"
+          class="ui blue button pop floated right"
+          data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
           data-val="false"
-          data-color="teal"
+          data-color="blue"
           style="margin: 5px"
         >
           Ball
         </button>
         <div
           id="hold"
-          class="ui action small floated right input"
+          class="ui action small floated right input pop"
           style="margin: 5px"
           data-val="false"
+          data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
         >
           <input
             type="text"
