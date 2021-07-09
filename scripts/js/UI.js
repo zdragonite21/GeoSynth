@@ -2,6 +2,10 @@ var dis = false
 
 var en = ""
 
+var input = $(".input")
+
+var add = $("#enter")
+
 var handler = {
   activate: function () {
     $(this).addClass("active").siblings().removeClass("active")
@@ -73,10 +77,6 @@ $(document)
     $("#begin").modal({ closable: false, transition: "fade" }).modal("show")
 
     var inp = $("#in")
-
-    var input = $(".input")
-
-    var add = $("#enter")
 
     $(".erase").on("click", () => {
       handler.color("#erase")
