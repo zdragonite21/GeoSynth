@@ -306,24 +306,24 @@
     </button>
 
     <div
-      class="ui vertical steps"
-      style="position: absolute; right: 0; top: 300px"
+      class="ui vertical steps left"
+      style="position: absolute; left: 0; top: 300px"
     >
-      <div class="active step">
+      <div id="stepsound" class="active step">
         <i class="music icon"></i>
         <div class="content">
           <div class="title">Sounds</div>
           <div class="description">Select your sound effect</div>
         </div>
       </div>
-      <div class="step">
+      <div id="stepshape" class="step">
         <i class="star outline icon"></i>
         <div class="content">
           <div class="title">Shape</div>
           <div class="description">Select a shape</div>
         </div>
       </div>
-      <div class="step">
+      <div id="stepball" class="step">
         <i class="circle outline icon"></i>
         <div class="content">
           <div class="title">Ball</div>
@@ -444,6 +444,7 @@
         </div>
 
         <div
+          id="shape"
           class="ui buttons floated right pop"
           style="margin: 5px"
           data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments)"
@@ -559,6 +560,7 @@
     <script src="scripts/libs/matter.min.js"></script>
     <script src="scripts/js/UI.js"></script>
     <script src="scripts/js/Color.js"></script>
+    <script src="scripts/js/Demo.js"></script>
     <script src="scripts/js/Math_Funct.js"></script>
     <script src="scripts/js/Box.js"></script>
     <script src="scripts/js/Music.js"></script>

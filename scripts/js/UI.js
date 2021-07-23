@@ -174,6 +174,10 @@ $(document)
 
     $("#select").dropdown({
       onChange: function (value) {
+        if (step1) {
+          handle.enable("#shape")
+          step1 = false
+        }
         SOUND.setEffect(value)
       },
     })
