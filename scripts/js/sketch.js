@@ -191,13 +191,6 @@ function keyPressed() {
       handler.disable("#ball")
       button2 = !button2
     }
-  } else if (keyCode === 83) {
-    if (!$("#shape").hasClass("disabled")) {
-      handler.toggle("#shape")
-      handler.tgcolor("#shape")
-      handler.disable("#shape")
-      button1 = !button1
-    }
   } else if (keyCode === 69) {
     if (!$("#erase").hasClass("disabled")) {
       handler.toggle("#erase")
