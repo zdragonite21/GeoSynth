@@ -362,7 +362,7 @@
         <!-- select -->
         <div style="float: left; margin-right: 10px; margin-top: 5px">
           <select name="effect" class="ui dropdown compact" id="select">
-            <option value="">Sound Effect</option>
+            <option value="">Choose a Sound Effect</option>
             <option value="0">None</option>
             <option value="1">Piano</option>
             <option value="2">Duck</option>
@@ -416,20 +416,17 @@
           <div data-note="E4" class="akey w"></div>
         </div>
 
-        <div class="ui buttons floated right" style="margin: 5px">
-          <button
-            id="shape"
-            class="ui red button pop tg"
-            data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments) Hotkey: s"
-            data-val="false"
-            data-color="red"
-          >
-            Add Shape
-          </button>
+        <div
+          class="ui buttons floated right pop"
+          style="margin: 5px"
+          data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments) Hotkey: s"
+        >
           <button
             id="line"
             class="ui teal button grp"
             onclick="L = true, cir = false"
+            data-val="false"
+            data-color="teal"
           >
             Line
           </button>
@@ -437,6 +434,8 @@
             id="tri"
             class="ui teal button grp"
             onclick="side_length = 3, cir = false, L = false"
+            data-val="false"
+            data-color="teal"
           >
             Triangle
           </button>
@@ -444,6 +443,8 @@
             id="sq"
             class="ui teal button grp"
             onclick="side_length = 4, cir = false, L = false"
+            data-val="false"
+            data-color="teal"
           >
             Square
           </button>
@@ -451,6 +452,8 @@
             id="pent"
             class="ui teal button grp"
             onclick="side_length = 5, cir = false, L = false"
+            data-val="false"
+            data-color="teal"
           >
             Pentagon
           </button>
@@ -458,6 +461,8 @@
             id="hexa"
             class="ui teal button grp active"
             onclick="side_length = 6, cir = false, L = false"
+            data-val="false"
+            data-color="teal"
           >
             Hexagon
           </button>
@@ -465,6 +470,8 @@
             id="circle"
             class="ui teal button grp"
             onclick="cir = true, L = false"
+            data-val="false"
+            data-color="teal"
           >
             Circle
           </button>

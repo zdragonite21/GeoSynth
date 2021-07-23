@@ -116,10 +116,40 @@ $(document)
       $("#hold").css("display", "none")
     })
 
-    $("#shape").click(() => {
-      handler.toggle("#shape")
-      handler.tgcolor("#shape")
-      handler.disable("#shape")
+    $("#line").click(() => {
+      handler.toggle("#line")
+      handler.tgcolor("#line")
+      handler.disable("#line")
+      button1 = !button1
+    })
+    $("#tri").click(() => {
+      handler.toggle("#tri")
+      handler.tgcolor("#tri")
+      handler.disable("#tri")
+      button1 = !button1
+    })
+    $("#sq").click(() => {
+      handler.toggle("#sq")
+      handler.tgcolor("#sq")
+      handler.disable("#sq")
+      button1 = !button1
+    })
+    $("#pent").click(() => {
+      handler.toggle("#pent")
+      handler.tgcolor("#pent")
+      handler.disable("#pent")
+      button1 = !button1
+    })
+    $("#hexa").click(() => {
+      handler.toggle("#hexa")
+      handler.tgcolor("#hexa")
+      handler.disable("#hexa")
+      button1 = !button1
+    })
+    $("#circle").click(() => {
+      handler.toggle("#circle")
+      handler.tgcolor("#circle")
+      handler.disable("#circle")
       button1 = !button1
     })
 
