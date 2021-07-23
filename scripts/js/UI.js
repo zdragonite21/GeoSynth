@@ -80,7 +80,21 @@ $(document)
       $("#begin").modal("hide")
       handle.disab("#select")
       step1 = true
+      $(".vertical.steps").transition("scale")
       $(".vertical.steps").css("display", "")
+      $(".vertical.steps").children().removeClass("completed")
+      $("#stepsound").addClass("active")
+      step2 = false
+      step3 = false
+      stepTwo = false
+      stepThree = false
+    })
+
+    $("#begin").modal({
+      onHidden: () => {
+        $("#introbt").css("display", "none")
+        $("#closebt").css("display", "")
+      },
     })
 
     $("#demo").click(() => {
