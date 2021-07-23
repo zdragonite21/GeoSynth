@@ -28,7 +28,6 @@
   <body style="background-color: black">
     <!-- modals -->
     <div id="begin" class="ui modal">
-      <i class="close icon"></i>
       <div class="header">GeoSynth</div>
 
       <div class="description" style="margin: 20px">
@@ -68,6 +67,13 @@
           source code, and more.
         </p>
         <p>Good luck and have fun!</p>
+      </div>
+      <div class="actions">
+        <div id="demobt" class="ui black button">Demo</div>
+        <div id="startbt" class="ui positive right labeled icon button">
+          Start
+          <i class="checkmark icon"></i>
+        </div>
       </div>
     </div>
     <div id="settings" class="ui modal">
@@ -272,6 +278,12 @@
         <i class="keyboard icon"></i>
         Hotkeys
       </a> -->
+
+      <a id="demo" class="item">
+        <i class="star icon"></i>
+        Demo
+      </a>
+
       <a id="intro" class="item">
         <i class="envelope icon"></i>
         Intro
@@ -307,7 +319,7 @@
 
     <div
       class="ui vertical steps left"
-      style="position: absolute; left: 0; top: 300px"
+      style="position: absolute; left: 0; top: 300px; display: none"
     >
       <div id="stepsound" class="active step">
         <i class="music icon"></i>
@@ -487,7 +499,7 @@
           </button>
           <button
             id="hexa"
-            class="ui teal button grp active"
+            class="ui teal button grp"
             onclick="side_length = 6, cir = false, L = false"
             data-val="false"
             data-color="teal"

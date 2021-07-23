@@ -76,6 +76,26 @@ $(document)
   .ready(function () {
     $("#begin").modal({ closable: false, transition: "fade" }).modal("show")
 
+    $("#demobt").click(() => {
+      $("#begin").modal("hide")
+      handle.disab("#select")
+      step1 = true
+      $(".vertical.steps").css("display", "")
+    })
+
+    $("#demo").click(() => {
+      handle.disab("#select")
+      step1 = true
+      $(".vertical.steps").transition("scale")
+      $(".vertical.steps").css("display", "")
+      $(".vertical.steps").children().removeClass("completed")
+      $("#stepsound").addClass("active")
+      step2 = false
+      step3 = false
+      stepTwo = false
+      stepThree = false
+    })
+
     var inp = $("#in")
 
     $(".erase").on("click", () => {
@@ -169,8 +189,6 @@ $(document)
       button2 = !button2
       vset = !vset
     })
-
-    $(".grp").on("click", handler.activate)
 
     $("#select").dropdown({
       onChange: function (value) {

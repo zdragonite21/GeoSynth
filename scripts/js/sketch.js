@@ -305,13 +305,24 @@ function draw() {
     }
   }
   if (button1) {
+    stepTwo = true
     var lcolor = color.map((val) => constrain(val + amp, 0, 255))
     Poly(poX, poY, side_length, shape_rad, rot, cir, L, lcolor)
   } else if (button2) {
+    stepThree = true
     Cir(poX, poY, ball_rad)
   } else if (erase) {
     eraser.show()
     eraser.detect()
+  }
+
+  if (button1 == false && stepTwo == true && step2 == true) {
+    handle.steptwo()
+    step2 = false
+  }
+  if (button2 == false && stepThree == true && step3 == true) {
+    handle.stepthree()
+    step3 = false
   }
 
   pause()
