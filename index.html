@@ -490,16 +490,17 @@
         </div>
         <div
           id="hold"
-          class="ui action small floated right pop input"
+          class="ui action small floated right input"
           style="margin: 5px; display: none"
           data-val="false"
-          data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
         >
           <input
             type="text"
+            class="pop"
             id="in"
             placeholder="2 or 30..."
             style="width: 100px"
+            data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
             maxlength="2"
           />
