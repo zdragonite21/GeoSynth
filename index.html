@@ -341,6 +341,20 @@
         </button>
       </div>
 
+      <div style="position: absolute; left: 205px; margin-top: 5px">
+        <button
+          id="erase"
+          class="ui green button pop erase"
+          onclick="erase = !erase"
+          data-val="false"
+          data-color="green"
+          data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
+          style="margin: 5px"
+        >
+          Erase
+        </button>
+      </div>
+
       <div
         class="parental shape buttons"
         style="margin: 5px; position: absolute; right: 0"
@@ -455,31 +469,29 @@
             Circle
           </button>
         </div>
-        <button
-          id="erase"
-          class="ui green button floated right pop erase"
-          onclick="erase = !erase"
-          data-val="false"
-          data-color="green"
-          data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
-          style="margin: 5px"
-        >
-          Erase
-        </button>
-        <button
-          id="ball"
-          class="ui blue button pop floated right"
-          data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
-          data-val="false"
-          data-color="blue"
-          style="margin: 5px"
-        >
-          Ball
-        </button>
+        <div class="ui buttons" style="margin: 5px" id="balls">
+          <button
+            id="ball"
+            class="ui blue button pop floated right"
+            data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
+            data-val="false"
+            data-color="blue"
+          >
+            Ball
+          </button>
+          <div id="seldrop" class="ui floating dropdown icon button blue">
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div id="optvel" class="item">
+                Add ball with specific velocity
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           id="hold"
           class="ui action small floated right pop input"
-          style="margin: 5px"
+          style="margin: 5px; display: none"
           data-val="false"
           data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
         >
@@ -499,6 +511,12 @@
           >
             Add
           </button>
+          <div id="selball" class="ui floating dropdown icon button orange">
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div id="optball" class="item">Add ball (reg)</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

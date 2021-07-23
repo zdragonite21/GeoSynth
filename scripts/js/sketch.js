@@ -66,6 +66,7 @@ var mic
 var color
 var amp = 50
 var paused = false
+var scal = 1
 
 function setup() {
   var canvas = createCanvas(window.innerWidth, window.innerHeight)
@@ -204,6 +205,14 @@ function keyPressed() {
       handler.disable("#erase")
       erase = !erase
     }
+  } else if (keyCode === 187) {
+    scal += 0.2
+    scal = constrain(scal, 0.1, 2)
+  } else if (keyCode === 189) {
+    scal -= 0.1
+    scal = constrain(scal, 0.1, 2)
+  } else if (keyCode === 48) {
+    scal = 1
   }
   // } else if (keyCode === 90) {
   //   if (!$("#line").hasClass("disabled")) {
@@ -249,6 +258,7 @@ function mouseWheel(event) {
 }
 
 function draw() {
+  engine.timing.timeScale = scal
   background(51)
   color = Color(note, SOUND.effect)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))

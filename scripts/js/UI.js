@@ -103,6 +103,19 @@ $(document)
 
     inp.on("input", handler.err)
 
+    $("#seldrop").dropdown()
+    $("#selball").dropdown()
+
+    $("#optvel").on("click", () => {
+      $("#balls").css("display", "none")
+      $("#hold").css("display", "")
+    })
+
+    $("#optball").on("click", () => {
+      $("#balls").css("display", "")
+      $("#hold").css("display", "none")
+    })
+
     $("#shape").click(() => {
       handler.toggle("#shape")
       handler.tgcolor("#shape")
