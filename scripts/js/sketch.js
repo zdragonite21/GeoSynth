@@ -50,6 +50,7 @@ var max_rad = 400
 var min_rad = 40
 var stroke_len = 10
 var note = "C3"
+var dashape = $("#hex")
 
 var poX = 0
 var poY = 0
@@ -179,16 +180,20 @@ function mouseClicked() {
           shapes.push(new Line(poX, pX, poY, pY, stroke_len, color))
           stay = false
           turn = false
+          $("#line").removeClass("disabled")
         } else {
           stay = true
+          $("#line").addClass("disabled")
         }
       } else {
         if (stay) {
           shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot, color))
           stay = false
           turn = false
+          dashape.removeClass("disabled")
         } else {
           stay = true
+          dashape.addClass("disabled")
         }
       }
     } else if (button2) {
@@ -199,8 +204,10 @@ function mouseClicked() {
         ball.body.isStatic = paused
         stay = false
         turn = false
+        $("#ball").removeClass("disabled")
       } else {
         stay = true
+        $("#ball").addClass("disabled")
       }
     }
   }
