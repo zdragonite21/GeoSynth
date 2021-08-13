@@ -97,6 +97,8 @@ $(document)
       },
     })
 
+    $("#sure").modal()
+
     $("#demo").click(() => {
       handle.disab("#select")
       step1 = true
@@ -139,6 +141,33 @@ $(document)
 
     $("#seldrop").dropdown()
     $("#selball").dropdown()
+    $("#clrsel").dropdown()
+
+    $("#clrshape").on("click", () => {
+      $("#clearall").html("Clear Shapes")
+      $("#perman").html(
+        "This will permanately delete all static shapes on your canvas"
+      )
+      cleear = 3
+    })
+    $("#clrball").on("click", () => {
+      $("#clearall").html("Clear Balls")
+      $("#perman").html(
+        "This will permanately delete all the balls on your canvas"
+      )
+      cleear = 2
+    })
+    $("#clrall").on("click", () => {
+      $("#clearall").html("Clear All")
+      $("#perman").html(
+        "This will permanately delete everything on your canvas"
+      )
+      cleear = 1
+    })
+
+    $("#clearall").on("click", () => {
+      $("#sure").modal("show")
+    })
 
     $("#optvel").on("click", () => {
       $("#balls").css("display", "none")

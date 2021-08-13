@@ -67,6 +67,7 @@ var color
 var amp = 50
 var paused = false
 var scal = 1
+var cleear = 1
 
 function setup() {
   var canvas = createCanvas(window.innerWidth, window.innerHeight)
@@ -113,6 +114,43 @@ function setup() {
     var bodyB = pair.bodyB
 
     handleCollision(bodyA, bodyB)
+  })
+
+  $("#yesbtn").on("click", () => {
+    if (cleear === 1) {
+      //all
+      World.remove(world, ALL_BODIES)
+
+      STATIC_BODIES = []
+      NONSTATIC_BODIES = []
+      ALL_BODIES = []
+      balls = []
+      shapes = []
+    } else if (cleear === 2) {
+      //ball
+      World.remove(world, NONSTATIC_BODIES)
+
+      ALL_BODIES = STATIC_BODIES
+      NONSTATIC_BODIES = []
+      balls = []
+    } else if (cleear === 3) {
+      //shape
+      World.remove(world, STATIC_BODIES)
+
+      ALL_BODIES = NONSTATIC_BODIES
+      STATIC_BODIES = []
+      shapes = []
+    }
+  })
+
+  $("#startbt").on("click", () => {
+    World.remove(world, ALL_BODIES)
+
+    STATIC_BODIES = []
+    NONSTATIC_BODIES = []
+    ALL_BODIES = []
+    balls = []
+    shapes = []
   })
 }
 
@@ -206,6 +244,12 @@ function keyPressed() {
     scal = constrain(scal, 0.1, 2)
   } else if (keyCode === 48) {
     scal = 1
+  } else if (keyCode === 67) {
+    $("#sure").modal("show")
+  } else if (keyCode === 77) {
+    if (!$("#volume").hasClass("disabled")) {
+      $("#volume").trigger("click")
+    }
   }
   // } else if (keyCode === 90) {
   //   if (!$("#line").hasClass("disabled")) {

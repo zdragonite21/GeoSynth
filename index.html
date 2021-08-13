@@ -68,6 +68,8 @@
           source code, and more.
         </p>
         <p>Good luck and have fun!</p>
+        <div class="ui header">Update!</div>
+        <p>You can find all hotkeys available in the menu tab</p>
       </div>
       <div id="introbt" class="actions">
         <div id="demobt" class="ui black button">Demo</div>
@@ -225,6 +227,10 @@
         <p><strong>e</strong> - intiates the erase tool</p>
         <p><strong>h</strong> - hides/unhides the top bar</p>
         <p><strong>b</strong> - intiates the ball tool</p>
+        <p>
+          <strong>c</strong> - clears everything, clears only balls, or clears
+          only shapes
+        </p>
 
         <div class="ui header">Experimental</div>
         <p><strong>+</strong> - increases the speed of the physics</p>
@@ -232,6 +238,30 @@
         <p><strong>0</strong> - resets the speed of the phyiscs</p>
       </div>
     </div>
+
+    <div id="sure" class="ui basic modal">
+      <div class="ui icon header">
+        <i class="exclamation triangle icon"></i>
+        Are you sure?
+      </div>
+      <div class="content">
+        <p id="perman" style="text-align: center">
+          This will permanately delete everything on your canvas
+        </p>
+      </div>
+      <div class="actions">
+        <div class="ui red basic cancel inverted button">
+          <i class="remove icon"></i>
+          No
+        </div>
+        <div id="yesbtn" class="ui green ok inverted button">
+          <i class="checkmark icon"></i>
+          Yes
+        </div>
+      </div>
+    </div>
+
+    <!-- sidebar -->
 
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
       <a
@@ -242,21 +272,21 @@
         Code
       </a>
       <!-- <a class="item">
-        <i class="save icon"></i>
-        Save
-      </a>
-      <a class="item">
-        <i class="upload icon"></i>
-        Upload
-      </a> -->
+          <i class="save icon"></i>
+          Save
+        </a>
+        <a class="item">
+          <i class="upload icon"></i>
+          Upload
+        </a> -->
       <a id="copy" class="item">
         <i class="share alternate icon"></i>
         Share
       </a>
       <!-- <a id="setting" class="item">
-        <i class="setting icon"></i>
-        Settings
-      </a> -->
+          <i class="setting icon"></i>
+          Settings
+        </a> -->
       <a id="asset" class="item">
         <i class="book icon"></i>
         Assets
@@ -387,6 +417,28 @@
         >
           Erase
         </button>
+      </div>
+
+      <!-- clear  -->
+
+      <div style="position: absolute; left: 295px; margin-top: 5px">
+        <div class="ui buttons red" style="margin: 5px">
+          <button
+            id="clearall"
+            class="ui button pop"
+            data-content="Clears everything, only shapes, or only balls. Hotkey: c"
+          >
+            Clear All
+          </button>
+          <div id="clrsel" class="ui floating dropdown icon button">
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div id="clrshape" class="item">Clear all shapes</div>
+              <div id="clrball" class="item">Clear all balls</div>
+              <div id="clrall" class="item">Clear all</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div
