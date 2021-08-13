@@ -315,301 +315,305 @@
       </a>
     </div>
 
-    <!-- name -->
-    <div class="names">
-      <p style="color: white">GeoSynth by Zachary Leong</p>
-    </div>
-
-    <!-- YouTube -->
-    <button
-      id="fhyt"
-      class="ui youtube button"
-      style="position: absolute; bottom: 0px; margin: 10px; right: -130px"
-      onclick=" window.open('https://www.youtube.com/channel/UCQ1T1a9E6B7t-5XXfZruDsw')"
-    >
-      <i class="youtube large icon"></i>
-      @FeelingHappy
-    </button>
-
-    <!-- Github -->
-    <button
-      id="geo"
-      class="ui button"
-      style="position: absolute; bottom: 45px; margin: 10px; right: -105px"
-      onclick=" window.open('https://github.com/zdragonite21')"
-    >
-      <i class="github icon large"></i>
-      @GeoSynth
-    </button>
-
-    <div
-      class="ui vertical steps left"
-      style="position: absolute; left: 0; top: 300px; display: none"
-    >
-      <div id="stepsound" class="active step">
-        <i class="music icon"></i>
-        <div class="content">
-          <div class="title">Sounds</div>
-          <div class="description">Select your sound effect</div>
-        </div>
+    <div id="pusher" class="pusher">
+      <!-- name -->
+      <div class="names">
+        <p style="color: white">GeoSynth by Zachary Leong</p>
       </div>
-      <div id="stepshape" class="step">
-        <i class="star outline icon"></i>
-        <div class="content">
-          <div class="title">Shape</div>
-          <div class="description">Select a shape</div>
-        </div>
-      </div>
-      <div id="stepball" class="step">
-        <i class="circle outline icon"></i>
-        <div class="content">
-          <div class="title">Ball</div>
-          <div class="description">Add a ball to the canvas</div>
-        </div>
-      </div>
-    </div>
 
-    <div id="header" class="trans" style="position: relative">
+      <!-- YouTube -->
       <button
-        class="ui inverted icon button pop"
-        id="sb"
-        style="position: absolute; margin: 10px"
-        data-content="Allows you to access sidebar tools. No hotkey."
+        id="fhyt"
+        class="ui youtube button"
+        style="position: absolute; bottom: 0px; margin: 10px; right: -130px"
+        onclick=" window.open('https://www.youtube.com/channel/UCQ1T1a9E6B7t-5XXfZruDsw')"
       >
-        Menu
+        <i class="youtube large icon"></i>
+        @FeelingHappy
+      </button>
+
+      <!-- Github -->
+      <button
+        id="geo"
+        class="ui button"
+        style="position: absolute; bottom: 45px; margin: 10px; right: -105px"
+        onclick=" window.open('https://github.com/zdragonite21')"
+      >
+        <i class="github icon large"></i>
+        @GeoSynth
       </button>
 
       <div
-        class="ui buttons"
-        style="position: absolute; left: 80px; margin-top: 10px"
+        class="ui vertical steps left"
+        style="position: absolute; left: 0; top: 300px; display: none"
       >
-        <!-- pause -->
-        <button
-          id="pause"
-          class="yellow ui inverted button pause tg pop"
-          data-val="false"
-          data-color="yellow"
-          data-content="Pauses everything in canvas. (tip: you can still edit while the scene is paused) Hotkey: spacebar"
-        >
-          Pause
-        </button>
-
-        <!-- volume -->
-        <button
-          id="volume"
-          class="ui red inverted icon button pop"
-          data-val="false"
-          data-content="Mutes/unmutes the sound. Hotkey: m"
-        >
-          <i id="vol" class="ui icon volume up"></i>
-        </button>
-      </div>
-
-      <div style="position: absolute; left: 205px; margin-top: 5px">
-        <button
-          id="erase"
-          class="ui green button pop erase"
-          onclick="erase = !erase"
-          data-val="false"
-          data-color="green"
-          data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
-          style="margin: 5px"
-        >
-          Erase
-        </button>
-      </div>
-
-      <!-- clear  -->
-
-      <div style="position: absolute; left: 295px; margin-top: 5px">
-        <div class="ui buttons red" style="margin: 5px">
-          <button
-            id="clearall"
-            class="ui button pop"
-            data-content="Clears everything, only shapes, or only balls. Hotkey: c"
-          >
-            Clear All
-          </button>
-          <div id="clrsel" class="ui floating dropdown icon button">
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div id="clrshape" class="item">Clear all shapes</div>
-              <div id="clrball" class="item">Clear all balls</div>
-              <div id="clrall" class="item">Clear all</div>
-            </div>
+        <div id="stepsound" class="active step">
+          <i class="music icon"></i>
+          <div class="content">
+            <div class="title">Sounds</div>
+            <div class="description">Select your sound effect</div>
+          </div>
+        </div>
+        <div id="stepshape" class="step">
+          <i class="star outline icon"></i>
+          <div class="content">
+            <div class="title">Shape</div>
+            <div class="description">Select a shape</div>
+          </div>
+        </div>
+        <div id="stepball" class="step">
+          <i class="circle outline icon"></i>
+          <div class="content">
+            <div class="title">Ball</div>
+            <div class="description">Add a ball to the canvas</div>
           </div>
         </div>
       </div>
 
-      <div
-        class="parental shape buttons"
-        style="margin: 5px; position: absolute; right: 0"
-      >
-        <!-- select -->
-        <div style="float: left; margin-right: 10px; margin-top: 5px">
-          <select name="effect" class="ui dropdown compact" id="select">
-            <option value="">Choose a Sound Effect</option>
-            <option value="0">None</option>
-            <option value="1">Piano</option>
-            <option value="2">Duck</option>
-            <option value="3">Drum Set</option>
-          </select>
-        </div>
-
-        <!-- drums -->
-
-        <div style="float: left; margin: 7px" hidden="true" id="per">
-          <div class="ui vertical buttons small" style="margin-right: 5px">
-            <button data-val="0" class="ui active button drum">Snare</button>
-            <button data-val="1" class="ui button drum">Dry</button>
-          </div>
-          <button data-val="2" class="ui button small drum">Cymbal</button>
-          <button data-val="3" class="ui button small drum">Tom</button>
-          <div class="ui vertical buttons small" style="margin-right: 3px">
-            <button data-val="4" class="ui button drum">Hi Hat</button>
-            <button data-val="5" class="ui button drum">Closed</button>
-          </div>
-          <button data-val="6" class="ui button small drum">Side Stick</button>
-          <button data-val="7" class="ui button small drum">Bass</button>
-        </div>
-
-        <!-- piano -->
-
-        <div class="piano" style="float: left" hidden="true">
-          <div data-note="F2" class="akey w"></div>
-          <div data-note="F#2" class="akey b"></div>
-          <div data-note="G2" class="akey w"></div>
-          <div data-note="G#2" class="akey b"></div>
-          <div data-note="A2" class="akey w"></div>
-          <div data-note="A#2" class="akey b"></div>
-          <div data-note="B2" class="akey w"></div>
-          <div data-note="C3" class="akey w"></div>
-          <div data-note="C#3" class="akey b"></div>
-          <div data-note="D3" class="akey w"></div>
-          <div data-note="D#3" class="akey b"></div>
-          <div data-note="E3" class="akey w"></div>
-          <div data-note="F3" class="akey w"></div>
-          <div data-note="F#3" class="akey b"></div>
-          <div data-note="G3" class="akey w"></div>
-          <div data-note="G#3" class="akey b"></div>
-          <div data-note="A3" class="akey w"></div>
-          <div data-note="A#3" class="akey b"></div>
-          <div data-note="B3" class="akey w"></div>
-          <div data-note="C4" class="akey w"></div>
-          <div data-note="C#4" class="akey b"></div>
-          <div data-note="D4" class="akey w"></div>
-          <div data-note="D#4" class="akey b"></div>
-          <div data-note="E4" class="akey w"></div>
-        </div>
+      <div id="header" class="trans" style="position: relative">
+        <button
+          class="ui inverted icon button pop"
+          id="sb"
+          style="position: absolute; margin: 10px"
+          data-html="<strong>Allows you to access sidebar tools. No hotkey.</strong>"
+        >
+          Menu
+        </button>
 
         <div
-          id="shape"
-          class="ui buttons floated right pop"
-          style="margin: 5px"
-          data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments)"
+          class="ui buttons"
+          style="position: absolute; left: 80px; margin-top: 10px"
         >
+          <!-- pause -->
           <button
-            id="line"
-            class="ui teal button grp"
-            onclick="L = true, cir = false"
+            id="pause"
+            class="yellow ui inverted button pause tg pop"
             data-val="false"
-            data-color="teal"
+            data-color="yellow"
+            data-content="Pauses everything in canvas. (tip: you can still edit while the scene is paused) Hotkey: spacebar"
           >
-            Line
+            Pause
           </button>
+
+          <!-- volume -->
           <button
-            id="tri"
-            class="ui teal button grp"
-            onclick="side_length = 3, cir = false, L = false"
+            id="volume"
+            class="ui red inverted icon button pop"
             data-val="false"
-            data-color="teal"
+            data-content="Mutes/unmutes the sound. Hotkey: m"
           >
-            Triangle
-          </button>
-          <button
-            id="sq"
-            class="ui teal button grp"
-            onclick="side_length = 4, cir = false, L = false"
-            data-val="false"
-            data-color="teal"
-          >
-            Square
-          </button>
-          <button
-            id="pent"
-            class="ui teal button grp"
-            onclick="side_length = 5, cir = false, L = false"
-            data-val="false"
-            data-color="teal"
-          >
-            Pentagon
-          </button>
-          <button
-            id="hexa"
-            class="ui teal button grp"
-            onclick="side_length = 6, cir = false, L = false"
-            data-val="false"
-            data-color="teal"
-          >
-            Hexagon
-          </button>
-          <button
-            id="circle"
-            class="ui teal button grp"
-            onclick="cir = true, L = false"
-            data-val="false"
-            data-color="teal"
-          >
-            Circle
+            <i id="vol" class="ui icon volume up"></i>
           </button>
         </div>
-        <div class="ui buttons" style="margin: 5px" id="balls">
+
+        <div style="position: absolute; left: 205px; margin-top: 5px">
           <button
-            id="ball"
-            class="ui blue button pop floated right"
-            data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
+            id="erase"
+            class="ui green button pop erase"
+            onclick="erase = !erase"
             data-val="false"
-            data-color="blue"
+            data-color="green"
+            data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
+            style="margin: 5px"
           >
-            Ball
+            Erase
           </button>
-          <div id="seldrop" class="ui floating dropdown icon button blue">
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div id="optvel" class="item">
-                Add ball with specific velocity
+        </div>
+
+        <!-- clear  -->
+
+        <div style="position: absolute; left: 295px; margin-top: 5px">
+          <div class="ui buttons red" style="margin: 5px">
+            <button
+              id="clearall"
+              class="ui button pop"
+              data-content="Clears everything, only shapes, or only balls. Hotkey: c"
+            >
+              Clear All
+            </button>
+            <div id="clrsel" class="ui floating dropdown icon button">
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div id="clrshape" class="item">Clear all shapes</div>
+                <div id="clrball" class="item">Clear all balls</div>
+                <div id="clrall" class="item">Clear all</div>
               </div>
             </div>
           </div>
         </div>
+
         <div
-          id="hold"
-          class="ui action small floated right input"
-          style="margin: 5px; display: none"
-          data-val="false"
+          class="parental shape buttons"
+          style="margin: 5px; position: absolute; right: 0"
         >
-          <input
-            type="text"
-            class="pop"
-            id="in"
-            placeholder="2 or 30..."
-            style="width: 100px"
-            data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
-            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-            maxlength="2"
-          />
-          <button
-            class="ui orange button butt disabled"
-            id="enter"
-            data-color="orange"
+          <!-- select -->
+          <div style="float: left; margin-right: 10px; margin-top: 5px">
+            <select name="effect" class="ui dropdown compact" id="select">
+              <option value="">Choose a Sound Effect</option>
+              <option value="0">None</option>
+              <option value="1">Piano</option>
+              <option value="2">Duck</option>
+              <option value="3">Drum Set</option>
+            </select>
+          </div>
+
+          <!-- drums -->
+
+          <div style="float: left; margin: 7px" hidden="true" id="per">
+            <div class="ui vertical buttons small" style="margin-right: 5px">
+              <button data-val="0" class="ui active button drum">Snare</button>
+              <button data-val="1" class="ui button drum">Dry</button>
+            </div>
+            <button data-val="2" class="ui button small drum">Cymbal</button>
+            <button data-val="3" class="ui button small drum">Tom</button>
+            <div class="ui vertical buttons small" style="margin-right: 3px">
+              <button data-val="4" class="ui button drum">Hi Hat</button>
+              <button data-val="5" class="ui button drum">Closed</button>
+            </div>
+            <button data-val="6" class="ui button small drum">
+              Side Stick
+            </button>
+            <button data-val="7" class="ui button small drum">Bass</button>
+          </div>
+
+          <!-- piano -->
+
+          <div class="piano" style="float: left" hidden="true">
+            <div data-note="F2" class="akey w"></div>
+            <div data-note="F#2" class="akey b"></div>
+            <div data-note="G2" class="akey w"></div>
+            <div data-note="G#2" class="akey b"></div>
+            <div data-note="A2" class="akey w"></div>
+            <div data-note="A#2" class="akey b"></div>
+            <div data-note="B2" class="akey w"></div>
+            <div data-note="C3" class="akey w"></div>
+            <div data-note="C#3" class="akey b"></div>
+            <div data-note="D3" class="akey w"></div>
+            <div data-note="D#3" class="akey b"></div>
+            <div data-note="E3" class="akey w"></div>
+            <div data-note="F3" class="akey w"></div>
+            <div data-note="F#3" class="akey b"></div>
+            <div data-note="G3" class="akey w"></div>
+            <div data-note="G#3" class="akey b"></div>
+            <div data-note="A3" class="akey w"></div>
+            <div data-note="A#3" class="akey b"></div>
+            <div data-note="B3" class="akey w"></div>
+            <div data-note="C4" class="akey w"></div>
+            <div data-note="C#4" class="akey b"></div>
+            <div data-note="D4" class="akey w"></div>
+            <div data-note="D#4" class="akey b"></div>
+            <div data-note="E4" class="akey w"></div>
+          </div>
+
+          <div
+            id="shape"
+            class="ui buttons floated right pop"
+            style="margin: 5px"
+            data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments)"
+          >
+            <button
+              id="line"
+              class="ui teal button grp"
+              onclick="L = true, cir = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Line
+            </button>
+            <button
+              id="tri"
+              class="ui teal button grp"
+              onclick="side_length = 3, cir = false, L = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Triangle
+            </button>
+            <button
+              id="sq"
+              class="ui teal button grp"
+              onclick="side_length = 4, cir = false, L = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Square
+            </button>
+            <button
+              id="pent"
+              class="ui teal button grp"
+              onclick="side_length = 5, cir = false, L = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Pentagon
+            </button>
+            <button
+              id="hexa"
+              class="ui teal button grp"
+              onclick="side_length = 6, cir = false, L = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Hexagon
+            </button>
+            <button
+              id="circle"
+              class="ui teal button grp"
+              onclick="cir = true, L = false"
+              data-val="false"
+              data-color="teal"
+            >
+              Circle
+            </button>
+          </div>
+          <div class="ui buttons" style="margin: 5px" id="balls">
+            <button
+              id="ball"
+              class="ui blue button pop floated right"
+              data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
+              data-val="false"
+              data-color="blue"
+            >
+              Ball
+            </button>
+            <div id="seldrop" class="ui floating dropdown icon button blue">
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div id="optvel" class="item">
+                  Add ball with specific velocity
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="hold"
+            class="ui action small floated right input"
+            style="margin: 5px; display: none"
             data-val="false"
           >
-            Add
-          </button>
-          <div id="selball" class="ui floating dropdown icon button orange">
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div id="optball" class="item">Add ball (reg)</div>
+            <input
+              type="text"
+              class="pop"
+              id="in"
+              placeholder="2 or 30..."
+              style="width: 100px"
+              data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+              maxlength="2"
+            />
+            <button
+              class="ui orange button butt disabled"
+              id="enter"
+              data-color="orange"
+              data-val="false"
+            >
+              Add
+            </button>
+            <div id="selball" class="ui floating dropdown icon button orange">
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div id="optball" class="item">Add ball (reg)</div>
+              </div>
             </div>
           </div>
         </div>

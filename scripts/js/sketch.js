@@ -72,6 +72,7 @@ var cleear = 1
 function setup() {
   var canvas = createCanvas(window.innerWidth, window.innerHeight)
   canvas.style("z-index", -2)
+  canvas.parent("#pusher")
   engine = Engine.create()
   world = engine.world
   world.gravity.y = 0
