@@ -44,5 +44,6 @@ var handle = {
       duration: "3s",
       interval: 2000,
     })
+    handle.enab()
   },
 }

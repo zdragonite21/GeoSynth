@@ -380,10 +380,10 @@ function draw() {
 
   if (button1 == false && stepTwo == true && step2 == true) {
     handle.steptwo()
-    step2 = false
   }
   if (button2 == false && stepThree == true && step3 == true) {
     handle.stepthree()
+    step2 = false
     step3 = false
   }
 
