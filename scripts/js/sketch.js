@@ -119,13 +119,6 @@ function setup() {
   })
 
   $("#yesbtn").on("click", () => {
-    console.log(ALL_BODIES)
-    console.log(STATIC_BODIES)
-    console.log(NONSTATIC_BODIES)
-    console.log(shapes)
-    console.log(balls)
-    console.log("--------------")
-
     if (cleear === 1) {
       //all
       World.remove(world, ALL_BODIES)
@@ -139,23 +132,17 @@ function setup() {
       //ball
       World.remove(world, NONSTATIC_BODIES)
 
-      ALL_BODIES = STATIC_BODIES
+      ALL_BODIES = STATIC_BODIES.map((x) => x)
       NONSTATIC_BODIES = []
       balls = []
     } else if (cleear === 3) {
       //shape
       World.remove(world, STATIC_BODIES)
 
-      ALL_BODIES = NONSTATIC_BODIES
+      ALL_BODIES = NONSTATIC_BODIES.map((x) => x)
       STATIC_BODIES = []
       shapes = []
     }
-    console.log(ALL_BODIES)
-    console.log(STATIC_BODIES)
-    console.log(NONSTATIC_BODIES)
-    console.log(shapes)
-    console.log(balls)
-    console.log("===============")
   })
 
   $("#startbt").on("click", () => {
@@ -330,6 +317,8 @@ function draw() {
   background(51)
   color = Color(note, SOUND.effect)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))
+
+  console.log(shapes.length, STATIC_BODIES.length)
 
   for (var i = 0; i < shapes.length; i++) {
     shapes[i].show()
