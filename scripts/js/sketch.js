@@ -119,6 +119,13 @@ function setup() {
   })
 
   $("#yesbtn").on("click", () => {
+    console.log(ALL_BODIES)
+    console.log(STATIC_BODIES)
+    console.log(NONSTATIC_BODIES)
+    console.log(shapes)
+    console.log(balls)
+    console.log("--------------")
+
     if (cleear === 1) {
       //all
       World.remove(world, ALL_BODIES)
@@ -143,6 +150,12 @@ function setup() {
       STATIC_BODIES = []
       shapes = []
     }
+    console.log(ALL_BODIES)
+    console.log(STATIC_BODIES)
+    console.log(NONSTATIC_BODIES)
+    console.log(shapes)
+    console.log(balls)
+    console.log("===============")
   })
 
   $("#startbt").on("click", () => {
@@ -204,10 +217,18 @@ function mouseClicked() {
         ball.body.isStatic = paused
         stay = false
         turn = false
-        $("#ball").removeClass("disabled")
+        if (vset) {
+          $("#enter").removeClass("disabled")
+        } else {
+          $("#ball").removeClass("disabled")
+        }
       } else {
         stay = true
-        $("#ball").addClass("disabled")
+        if (vset) {
+          $("#enter").addClass("disabled")
+        } else {
+          $("#ball").addClass("disabled")
+        }
       }
     }
   }
@@ -253,7 +274,9 @@ function keyPressed() {
   } else if (keyCode === 48) {
     scal = 1
   } else if (keyCode === 67) {
-    $("#sure").modal("show")
+    if (!$("#clearall").hasClass("disabled")) {
+      $("#sure").modal("show")
+    }
   } else if (keyCode === 77) {
     if (!$("#volume").hasClass("disabled")) {
       $("#volume").trigger("click")

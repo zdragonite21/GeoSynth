@@ -31,6 +31,12 @@ function Eraser(x, y, r) {
       var checker = Query.point(ALL_BODIES, mouse_vec)
       if (checker.length > 0) {
         if (checker[0].stat == true) {
+          console.log(ALL_BODIES)
+          console.log(STATIC_BODIES)
+          console.log(NONSTATIC_BODIES)
+          console.log(shapes)
+          console.log(balls)
+          console.log("--------------")
           var stat_index = STATIC_BODIES.indexOf(checker[0])
           shapes.splice(stat_index, 1)
           STATIC_BODIES.splice(stat_index, 1)
@@ -44,6 +50,13 @@ function Eraser(x, y, r) {
         ALL_BODIES.splice(index, 1)
 
         World.remove(world, checker[0])
+
+        console.log(ALL_BODIES)
+        console.log(STATIC_BODIES)
+        console.log(NONSTATIC_BODIES)
+        console.log(shapes)
+        console.log(balls)
+        console.log("===============")
       }
     }
   }

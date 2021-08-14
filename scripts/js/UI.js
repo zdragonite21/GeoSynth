@@ -171,8 +171,6 @@ $(document)
       $("#balls").css("display", "none")
       $("#hold").css("display", "")
       handler.err()
-      console.log("============")
-      console.log(inp.val().length)
     })
 
     $("#optball").on("click", () => {
