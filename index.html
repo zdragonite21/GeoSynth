@@ -351,62 +351,79 @@
           <i class="music icon"></i>
           <div class="content">
             <div class="title">Sounds</div>
-            <div class="description">Select your sound effect</div>
+            <div class="description">
+              Select your sound effect and note or drum beat
+            </div>
           </div>
         </div>
         <div id="stepshape" class="step">
           <i class="star outline icon"></i>
           <div class="content">
             <div class="title">Shape</div>
-            <div class="description">Select a shape</div>
+            <div class="description">
+              Select a shape, place, scale, and rotate
+            </div>
           </div>
         </div>
         <div id="stepball" class="step">
           <i class="circle outline icon"></i>
           <div class="content">
             <div class="title">Ball</div>
-            <div class="description">Add a ball to the canvas</div>
+            <div class="description">
+              Place, scale, and specify direction and magnitude of the ball
+            </div>
           </div>
         </div>
       </div>
 
       <div id="header" class="trans" style="position: relative">
-        <button
-          class="ui inverted icon button pop"
-          id="sb"
-          style="position: absolute; margin: 10px"
-          data-html="<strong>Allows you to access sidebar tools. No hotkey.</strong>"
-        >
-          Menu
-        </button>
-
         <div
-          class="ui buttons"
-          style="position: absolute; left: 80px; margin-top: 10px"
+          id="leftcontainer"
+          style="position: absolute; left: 0px; margin: 5px"
         >
-          <!-- pause -->
           <button
-            id="pause"
-            class="yellow ui inverted button pause tg pop"
-            data-val="false"
-            data-color="yellow"
-            data-content="Pauses everything in canvas. (tip: you can still edit while the scene is paused) Hotkey: spacebar"
+            class="ui inverted icon button pop"
+            id="sb"
+            style="margin: 5px"
+            data-content="Allows you to access sidebar tools. No hotkey."
+            data-variation="inverted wide"
+            data-title="Menu"
+            data-position="bottom left"
           >
-            Pause
+            Menu
           </button>
 
-          <!-- volume -->
-          <button
-            id="volume"
-            class="ui red inverted icon button pop"
-            data-val="false"
-            data-content="Mutes/unmutes the sound. Hotkey: m"
-          >
-            <i id="vol" class="ui icon volume up"></i>
-          </button>
-        </div>
+          <div class="ui inverted buttons" style="margin: 5px">
+            <!-- pause -->
+            <button
+              id="pause"
+              class="yellow ui inverted button pause tg pop"
+              data-val="false"
+              data-color="yellow"
+              data-content="Pauses everything in canvas. (tip: you can still edit while the scene is paused) Hotkey: spacebar"
+              data-variation="inverted wide"
+              data-title="Pause Tool"
+              data-position="bottom left"
+            >
+              Pause
+            </button>
 
-        <div style="position: absolute; left: 205px; margin-top: 5px">
+            <!-- volume -->
+            <button
+              id="volume"
+              class="ui red icon inverted button pop"
+              data-val="false"
+              data-content="Mutes/unmutes the sound. Hotkey: m"
+              data-variation="inverted wide"
+              data-title="Mute Tool"
+              data-position="bottom center"
+            >
+              <i id="vol" class="ui icon volume up"></i>
+            </button>
+          </div>
+
+          <!-- erase -->
+
           <button
             id="erase"
             class="ui green button pop erase"
@@ -414,23 +431,25 @@
             data-val="false"
             data-color="green"
             data-content="Removes anything from the canvas. (tip: try pausing then erasing) Hotkey: e"
+            data-title="Erase Tool"
+            data-variation="inverted wide"
+            data-position="bottom center"
             style="margin: 5px"
           >
             Erase
           </button>
-        </div>
 
-        <!-- clear  -->
+          <!-- clear  -->
 
-        <div style="position: absolute; left: 295px; margin-top: 5px">
-          <div class="ui buttons red" style="margin: 5px">
-            <button
-              id="clearall"
-              class="ui button pop"
-              data-content="Clears everything, only shapes, or only balls. Hotkey: c"
-            >
-              Clear All
-            </button>
+          <div
+            class="ui buttons red pop"
+            style="margin: 5px; margin-right: 250px"
+            data-title="Clear Tool"
+            data-content="Clears everything, only shapes, or only balls. Hotkey: c"
+            data-variation="inverted very wide"
+            data-position="bottom center"
+          >
+            <button id="clearall" class="ui button">Clear All</button>
             <div id="clrsel" class="ui floating dropdown icon button">
               <i class="dropdown icon"></i>
               <div class="menu">
@@ -447,7 +466,14 @@
           style="margin: 5px; position: absolute; right: 0"
         >
           <!-- select -->
-          <div style="float: left; margin-right: 10px; margin-top: 5px">
+          <div
+            style="
+              float: left;
+              margin-right: 10px;
+              margin-top: 5px;
+              margin-left: 400px;
+            "
+          >
             <select name="effect" class="ui dropdown compact" id="select">
               <option value="">Choose a Sound Effect</option>
               <option value="0">None</option>
@@ -459,7 +485,16 @@
 
           <!-- drums -->
 
-          <div style="float: left; margin: 7px" hidden="true" id="per">
+          <div
+            style="float: left; margin: 7px"
+            hidden="true"
+            id="per"
+            class="pop"
+            data-content="Shift + click to hear the sound effect"
+            data-variation="inverted wide"
+            data-title="Drum Set"
+            data-position="bottom center"
+          >
             <div class="ui vertical buttons small" style="margin-right: 5px">
               <button data-val="0" class="ui active button drum">Snare</button>
               <button data-val="1" class="ui button drum">Dry</button>
@@ -478,7 +513,15 @@
 
           <!-- piano -->
 
-          <div class="piano" style="float: left" hidden="true">
+          <div
+            class="piano pop"
+            style="float: left"
+            hidden="true"
+            data-content="Click on any white or black note to preview colors. Shift + click to hear the sound effect and Ctrl + click to see chords."
+            data-variation="inverted very wide"
+            data-title="Piano Keyboard"
+            data-position="bottom center"
+          >
             <div data-note="F2" class="akey w"></div>
             <div data-note="F#2" class="akey b"></div>
             <div data-note="G2" class="akey w"></div>
@@ -510,6 +553,9 @@
             class="ui buttons floated right pop"
             style="margin: 5px"
             data-content="Adds a new shape (tip: use scroll to change shape size and shift to rotate in increments)"
+            data-position="bottom center"
+            data-variation="inverted wide"
+            data-title="Shape Tool"
           >
             <button
               id="line"
@@ -566,11 +612,18 @@
               Circle
             </button>
           </div>
-          <div class="ui buttons" style="margin: 5px" id="balls">
+          <div
+            class="ui buttons pop"
+            style="margin: 5px"
+            id="balls"
+            data-variation="inverted wide"
+            data-title="Ball Tool"
+            data-position="bottom right"
+            data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
+          >
             <button
               id="ball"
-              class="ui blue button pop floated right"
-              data-content="Adds a new ball to the canvas. (tip: use scroll to change size and shift to rotate in increments) Hotkey: b"
+              class="ui blue button floated right"
               data-val="false"
               data-color="blue"
             >
@@ -587,17 +640,19 @@
           </div>
           <div
             id="hold"
-            class="ui action small floated right input"
+            class="ui action small floated right input pop"
             style="margin: 5px; display: none"
             data-val="false"
+            data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
+            data-variation="inverted wide"
+            data-title="Specific Ball Tool"
+            data-position="bottom center"
           >
             <input
               type="text"
-              class="pop"
               id="in"
               placeholder="2 or 30..."
               style="width: 100px"
-              data-content="Adds a ball with a specific velocity. Ranges from 1-20. (tip: half the velocity to play off beats) No hotkey."
               oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
               maxlength="2"
             />

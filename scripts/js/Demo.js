@@ -11,6 +11,8 @@ var handle = {
     //   sel.parent().addClass("disabled")
     // }
     all.addClass("disabled")
+    $("#balls").css("display", "")
+    $("#hold").css("display", "none")
     // $(".w").addClass("g")
     // dis = true
   },

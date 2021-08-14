@@ -318,8 +318,6 @@ function draw() {
   color = Color(note, SOUND.effect)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))
 
-  console.log(shapes.length, STATIC_BODIES.length)
-
   for (var i = 0; i < shapes.length; i++) {
     shapes[i].show()
   }
