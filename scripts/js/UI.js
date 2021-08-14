@@ -6,6 +6,8 @@ var input = $(".input")
 
 var add = $("#enter")
 
+var inp = $("#in")
+
 var handler = {
   activate: function () {
     $(this).addClass("active").siblings().removeClass("active")
@@ -32,12 +34,9 @@ var handler = {
   },
 
   err: function () {
-    if (this.value.length == 0) {
+    if (inp.val().length == 0) {
       add.addClass("disabled")
-    } else {
-      add.removeClass("disabled")
-    }
-    if (parseInt(this.value) > 20) {
+    } else if (parseInt(inp.val()) > 20) {
       input.addClass("error")
       add.addClass("disabled")
     } else {
@@ -65,6 +64,7 @@ var handler = {
       sel.parent().removeClass("disabled")
       $(".w").removeClass("g")
       dis = false
+      handler.err()
     }
   },
   toggle: function (id) {
@@ -111,8 +111,6 @@ $(document)
       stepTwo = false
       stepThree = false
     })
-
-    var inp = $("#in")
 
     $(".erase").on("click", () => {
       handler.color("#erase")
@@ -172,6 +170,9 @@ $(document)
     $("#optvel").on("click", () => {
       $("#balls").css("display", "none")
       $("#hold").css("display", "")
+      handler.err()
+      console.log("============")
+      console.log(inp.val().length)
     })
 
     $("#optball").on("click", () => {
