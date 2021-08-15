@@ -51,6 +51,7 @@ var min_rad = 40
 var stroke_len = 10
 var note = "C3"
 var dashape = $("#hex")
+var hkb = true
 
 var poX = 0
 var poY = 0
@@ -239,7 +240,7 @@ function keyPressed() {
       $("#pause").trigger("click")
     }
   } else if (keyCode === 66) {
-    if (!$("#ball").hasClass("disabled")) {
+    if (!$("#ball").hasClass("disabled") && hkb) {
       handler.toggle("#ball")
       handler.tgcolor("#ball")
       handler.disable("#ball")

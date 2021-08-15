@@ -171,11 +171,13 @@ $(document)
       $("#balls").css("display", "none")
       $("#hold").css("display", "")
       handler.err()
+      hkb = false
     })
 
     $("#optball").on("click", () => {
       $("#balls").css("display", "")
       $("#hold").css("display", "none")
+      hkb = true
     })
 
     $("#line").click(() => {
