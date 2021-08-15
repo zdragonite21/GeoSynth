@@ -6,6 +6,7 @@ function Circle(x, y, r, stat = false, col = [117, 117, 117]) {
       isStatic: true,
       effect: SOUND.effect,
       col: col,
+      sus: false,
     }
   } else {
     options = {

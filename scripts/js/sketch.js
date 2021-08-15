@@ -17,6 +17,20 @@ var ALL_BODIES = []
 
 var SOUND
 
+// var CONV_UNDO = {
+//   0: "add shape",
+//   1: "add ball",
+//   2: "erase shape",
+//   3: "erase ball",
+// }
+
+var SUSPENDED = []
+
+// history
+var UNDO = []
+
+var step = -1
+
 var stroke_col = 255
 var stroke_weight = 3
 
@@ -127,6 +141,7 @@ function setup() {
       STATIC_BODIES = []
       NONSTATIC_BODIES = []
       ALL_BODIES = []
+      SUSPENDED = []
       balls = []
       shapes = []
     } else if (cleear === 2) {
@@ -135,15 +150,31 @@ function setup() {
 
       ALL_BODIES = STATIC_BODIES.map((x) => x)
       NONSTATIC_BODIES = []
+      SUSPENDED = []
       balls = []
+      for (var i = 0; i < shapes.length; i++) {
+        if (shapes[i].body.sus) {
+          shapes.splice(i, 1)
+          i += 1
+        }
+      }
     } else if (cleear === 3) {
       //shape
       World.remove(world, STATIC_BODIES)
 
       ALL_BODIES = NONSTATIC_BODIES.map((x) => x)
       STATIC_BODIES = []
+      SUSPENDED = []
       shapes = []
+      for (var i = 0; i < balls.length; i++) {
+        if (balls[i].body.sus) {
+          balls.splice(i, 1)
+          i += 1
+        }
+      }
     }
+    UNDO = []
+    step = -1
   })
 
   $("#startbt").on("click", () => {
@@ -157,6 +188,35 @@ function setup() {
   })
 }
 
+function undo() {
+  var pevent = UNDO[step]
+  if (pevent == 0) {
+    let myindex = STATIC_BODIES.length - 1
+    World.remove(world, STATIC_BODIES[myindex])
+    let temp = shapes.pop()
+    temp = STATIC_BODIES.pop()
+    temp = ALL_BODIES.pop()
+  } else if (pevent == 1) {
+    let myindex = NONSTATIC_BODIES.length - 1
+    World.remove(world, NONSTATIC_BODIES[myindex])
+    let temp = balls.pop()
+    temp = NONSTATIC_BODIES.pop()
+    temp = ALL_BODIES.pop()
+  } else if (pevent == 2) {
+    let temp = SUSPENDED.pop()
+    ALL_BODIES.push(temp)
+    if (temp.stat == true) {
+      STATIC_BODIES.push(temp)
+    } else {
+      NONSTATIC_BODIES.push(temp)
+    }
+    temp.sus = false
+
+    World.add(world, temp)
+  }
+  let temp = UNDO.pop()
+  step -= 1
+}
 function handleCollision(bodyA, bodyB) {
   if (bodyA.label == "collad") {
     if (bodyA.note != []) {
@@ -176,9 +236,13 @@ function mouseClicked() {
     if (button1) {
       if (cir) {
         shapes.push(new Circle(poX, poY, shape_rad, true, color))
+        UNDO.push(0)
+        step += 1
       } else if (L) {
         if (stay) {
           shapes.push(new Line(poX, pX, poY, pY, stroke_len, color))
+          UNDO.push(0)
+          step += 1
           stay = false
           turn = false
           $("#line").removeClass("disabled")
@@ -189,6 +253,8 @@ function mouseClicked() {
       } else {
         if (stay) {
           shapes.push(new Polygon(poX, poY, side_length, shape_rad, rot, color))
+          UNDO.push(0)
+          step += 1
           stay = false
           turn = false
           dashape.removeClass("disabled")
@@ -200,6 +266,8 @@ function mouseClicked() {
     } else if (button2) {
       if (stay) {
         var ball = new Circle(poX, poY, ball_rad, false)
+        UNDO.push(1)
+        step += 1
         Body.setVelocity(ball.body, vel)
         balls.push(ball)
         ball.body.isStatic = paused
@@ -269,7 +337,12 @@ function keyPressed() {
     if (!$("#volume").hasClass("disabled")) {
       $("#volume").trigger("click")
     }
+  } else if (keyCode == 90 && keyIsDown(17)) {
+    if (UNDO.length > 0) {
+      undo()
+    }
   }
+
   // } else if (keyCode === 90) {
   //   if (!$("#line").hasClass("disabled")) {
   //     $("#line").trigger("click")
@@ -318,13 +391,16 @@ function draw() {
   background(51)
   color = Color(note, SOUND.effect)
   mouse_vec = createVector(mouseX, constrain(mouseY, header, height))
-
   for (var i = 0; i < shapes.length; i++) {
-    shapes[i].show()
+    if (!shapes[i].body.sus) {
+      shapes[i].show()
+    }
   }
 
   for (var i = 0; i < balls.length; i++) {
-    balls[i].show()
+    if (!balls[i].body.sus) {
+      balls[i].show()
+    }
   }
 
   if (!stay) {

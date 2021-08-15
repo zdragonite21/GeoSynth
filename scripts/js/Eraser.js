@@ -32,13 +32,18 @@ function Eraser(x, y, r) {
       if (checker.length > 0) {
         if (checker[0].stat == true) {
           var stat_index = STATIC_BODIES.indexOf(checker[0])
-          shapes.splice(stat_index, 1)
+          // shapes.splice(stat_index, 1)
           STATIC_BODIES.splice(stat_index, 1)
+          UNDO.push(2)
         } else if (checker[0].stat == false) {
           var nonstat_index = NONSTATIC_BODIES.indexOf(checker[0])
-          balls.splice(nonstat_index, 1)
+          // balls.splice(nonstat_index, 1)
           NONSTATIC_BODIES.splice(nonstat_index, 1)
+          UNDO.push(2)
         }
+        SUSPENDED.push(checker[0])
+        step += 1
+        checker[0].sus = true
 
         var index = ALL_BODIES.indexOf(checker[0])
         ALL_BODIES.splice(index, 1)

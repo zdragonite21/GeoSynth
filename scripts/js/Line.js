@@ -5,6 +5,7 @@ function Line(x1, x2, y1, y2, s, col) {
     effect: SOUND.effect,
     isStatic: true,
     col: col,
+    sus: false,
   }
 
   conv = converter(x1, x2, y1, y2, s)

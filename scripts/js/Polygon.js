@@ -5,6 +5,7 @@ function Polygon(x, y, s, r, R = 0, col) {
     note: note,
     effect: SOUND.effect,
     col: col,
+    sus: false,
   }
   this.body = Bodies.polygon(x, y, s, r, options)
   this.r = r

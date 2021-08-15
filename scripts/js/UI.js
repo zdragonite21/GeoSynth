@@ -428,3 +428,11 @@ function copy2clip(str) {
 //     $(".w").removeClass("g")
 //   }
 // }
+
+// stop default ctrl z
+
+document.onkeydown = function (e) {
+  if (e.ctrlKey && e.key === "z") {
+    e.preventDefault()
+  }
+}
